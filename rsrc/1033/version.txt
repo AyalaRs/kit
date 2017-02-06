@@ -1,0 +1,29 @@
+FILEVERSION    2,1,0,4
+PRODUCTVERSION 2,1,0,4
+FILEFLAGSMASK  0x3F
+FILEFLAGS      0x0
+FILEOS         VOS_UNKNOWN | VOS__WINDOWS32
+FILETYPE       VFT_APP
+FILESUBTYPE    0x0
+{
+  BLOCK "StringFileInfo"
+  {
+    BLOCK "040904E4"
+    {
+      VALUE "CompanyName",       "Softwareentwicklung Yuschuk"
+      VALUE "FileDescription",   "Free 32-bit Analysing Debugger"
+      VALUE "FileVersion",       "2.1.0.4"
+      VALUE "InternalName",      "OllyDbg"
+      VALUE "LegalCopyright",    "Copyright (C) 2000-2012 Oleh Yuschuk"
+      VALUE "LegalTrademarks",   ""
+      VALUE "OriginalFilename",  "OllyDbg"
+      VALUE "ProductName",       "OllyDbg"
+      VALUE "ProductVersion",    "2.1.0.4"
+      VALUE "Comments",          ""
+    }
+  }
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x409, 1252
+  }
+}
