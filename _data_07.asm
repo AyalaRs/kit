@@ -3961,36 +3961,23 @@ stru_560EB8	t_control <2, 0FFFFFFFFh, 5, 6, 19h, 9, 0, offset aExport_0, 0, 0>; 
       0, 0>	; 0
 ; wchar_t aLoaddllLoaddll
 aLoaddllLoaddll:			; DATA XREF: .text:004CC268o
-		unicode	0, <\loaddll\loaddll.exe>,0
+		unicode	0, <\\loaddll\\loaddll.exe>,0
 aProcessingLoad:			; DATA XREF: .text:004CC279o
 		unicode	0, <Processing loaddll.exe>,0
 aUnableToLoadS:				; DATA XREF: .text:004CC2B5o
-		unicode	0, <  Unable to load >
-		dw 27h
-		unicode	0, <!%s>
-		dw 27h,	0
+		unicode	0, <  Unable to load \-!%s\->,0
 ; wchar_t aLoaddll_dat
 aLoaddll_dat:				; DATA XREF: .text:004CC2FDo
-		unicode	0, <\loaddll.dat>,0
+		unicode	0, <\\loaddll.dat>,0
 ; wchar_t aWb_1
 aWb_1:					; DATA XREF: .text:004CC30Eo
 		unicode	0, <wb>,0
 aUnableToCrea_3:			; DATA XREF: .text:004CC32Fo
-		unicode	0, <  Unable to create file >
-		dw 27h
-		unicode	0, <!%s>
-		dw 27h,	0
+		unicode	0, <  Unable to create file \-!%s\->,0
 aErrorSavingD_1:			; DATA XREF: .text:004CC381o
-		unicode	0, <  Error saving data to file >
-		dw 27h
-		unicode	0, <!%s>
-		dw 27h,	0
+		unicode	0, <  Error saving data to file \-!%s\->,
 aFileLoaddll_da:			; DATA XREF: .text:loc_4CC39Bo
-		unicode	0, <  File >
-		dw 27h			; 7
-		unicode	0, <loaddll.dat>
-		dw 27h			; 19
-		unicode	0, < created successfully>,0
+		unicode	0, <  File \-loaddll.dat\- created successfully>,0
 ; const	WCHAR aRes_loaddll
 aRes_loaddll:				; DATA XREF: .text:004CC41Do
 		unicode	0, <RES_LOADDLL>,0
