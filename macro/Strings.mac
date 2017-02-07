@@ -604,6 +604,8 @@ sc = 0							;; separating comma ( ...,... )
 					txt CATSTR txt, <7h>
 				ELSEIF "&cha" EQ "b"		;;  \b   = BS
 					txt CATSTR txt, <8h>
+				ELSEIF "&cha" EQ "c"		;;  \c   = "©"
+					txt CATSTR txt, <0A9h>
 				ELSEIF "&cha" EQ "t"		;;  \t   = HT
 					txt CATSTR txt, <9h>
 				ELSEIF "&cha" EQ "v"		;;  \v   = VT
@@ -720,8 +722,10 @@ sc = 0							;; separating comma ( ...,... )
 					txt CATSTR txt, <0Bh>
 				ELSEIF "&cha" EQ "f"		;;  \f   = FF
 					txt CATSTR txt, <0Ch>
+				ELSEIF "&cha" EQ "c"		;;  \c   = "©"
+					txt CATSTR txt, <0A9h>
 				ELSEIF "&cha" EQ "A"		;;  \A   = "&"
-					txt CATSTR txt, <26h>					
+					txt CATSTR txt, <26h>
 				ELSEIF "&cha" EQ "*"		;;  \*   = *nothing*
 					;; Add nothing. Workaround against "CreateFile" -> "CreateFileA" problem.
 					;; See above LIMITATIONS for details.
@@ -869,6 +873,10 @@ CTA MACRO txt, lora, aorl
 ENDM
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
+
+
+
 TW_ MACRO txt
 	IFNB <txt>
 		SSS_TemporaryString SUBSTR <txt>, 2, @SizeStr(<txt>) - 2
@@ -877,6 +885,12 @@ TW_ MACRO txt
 	ENDIF
 	
 	IF @SizeStr(%SSS_TemporaryString) GT 31
+
+		IF @CatStr(<!">,@SubStr(<txt>,31,1),<!">) EQ "\"
+			SSS_line TEXTEQU %@Line
+			% ECHO @FileCur(SSS_line) : TW macro ERROR! "\\" in 31 of &txt 
+			.err
+		ENDIF
 		SSA_TemporaryString SUBSTR <txt>, 32, @SizeStr(<txt>) - 32
 		SSB_TemporaryString SUBSTR <txt>, 2, 30
 
