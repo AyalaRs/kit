@@ -17,6 +17,8 @@ loc_4D0D91:				; CODE XREF: .text:004D0D99j
 		push	esi
 		push	edi
 		call	loc_4CDFAC
+ echo options
+__DebugBreak 
 		mov	eax, offset stru_563044
 		xor	edx, edx
 		mov	dword_5FF228, eax

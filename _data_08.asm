@@ -1302,7 +1302,8 @@ aDecodeTopOfFpu:			; DATA XREF: .data:005636FCo
 aSt0_0:					; DATA XREF: .data:00563724o
 		unicode	0, <ST\{0\}>,0
 aDecodeTopOfF_0:			; DATA XREF: .data:00563724o
-		unicode	0, <Decode top of FPU stack as ST\{0\} \{full form\}>,0
+		unicode	0, <Decode top of FPU stack >
+		unicode 0, <as ST\{0\} \{full form\}>,0
 aSt_3:					; DATA XREF: .data:0056374Co
 		unicode	0, <ST>,0
 aDecodeTopOfF_1:			; DATA XREF: .data:0056374Co
@@ -1466,7 +1467,8 @@ aSetMemoryTraps:			; DATA XREF: .data:00563FE4o
 aCallDebugbreak:			; DATA XREF: .data:0056400Co
 		unicode	0, <Call DebugBreakProcess\{\}>,0
 aUseThisSpecial:			; DATA XREF: .data:0056400Co
-		unicode	0, <Use this special system call \{if supported by OS\}>,0
+		unicode	0, <Use this special system >
+		unicode 0, <call \{if supported by OS\}>,0
 aWhenTerminatin:			; DATA XREF: .data:00564034o
 		unicode	0, <When terminating the running application:>,0
 aImmediatelyCal:			; DATA XREF: .data:0056405Co
@@ -2084,7 +2086,8 @@ aForExampleCall:			; DATA XREF: .data:0056626Co
 aAddOriginToThe:			; DATA XREF: .data:00566294o
 		unicode	0, <Add origin to the list of found commands>,0
 aAddItEvenIfCom:			; DATA XREF: .data:00566294o
-		unicode	0, <Add it, even if command doesn\-t meet the search criterium>,0
+		unicode	0, <Add it, even if command >
+		unicode 0, <doesn\-t meet the search criterium>,0
 aPreferableLang:			; DATA XREF: .data:005662BCo
 		unicode	0, <Preferable language of resource data:>,0
 aIfResourceExis:			; DATA XREF: .data:005662E4o

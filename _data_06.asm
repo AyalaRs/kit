@@ -3678,8 +3678,9 @@ aInt3_0:				; DATA XREF: .text:loc_496EFAo
 aCorruptBreakpo:			; DATA XREF: .text:0049734Do
 		unicode	0, <Corrupt breakpoint>,0
 aBreakpointSetA:			; DATA XREF: .text:00497341o
-		unicode	0, <Breakpoint set at address !%08X is corrupt \{contains hex c>
-		unicode	0, <ode !%02X instead of !%02X \{!%s\}. Probably the code is self->
+		unicode	0, <Breakpoint set at address !%08X is corrupt \{contains hex >
+		unicode	0, <code !%02X instead of !%02X >
+		unicode 0, <\{!%s\}. Probably the code is self->
 		unicode	0, <modifiable, or breakpoint was set on data. Description of>
 		unicode	0, < the breakpoint will be updated.>,0
 aUnableToSetB_7:			; DATA XREF: .text:004974D2o
@@ -3701,7 +3702,8 @@ aUnableToRemo_0:			; DATA XREF: .text:00497645o
 		unicode	0, <t readable.>,0
 aBreakpointSe_0:			; DATA XREF: .text:00497690o
 		unicode	0, <Breakpoint set at address !%08X is corrupt \{contains hex c>
-		unicode	0, <ode !%02X instead of !%02X \{!%s\}. Probably the code is self->
+		unicode	0, <ode !%02X instead of !%02X >
+		unicode 0, <\{!%s\}. Probably the code is self->
 		unicode	0, <modifiable, or breakpoint was set on data.>,0
 aUnableToRemo_1:			; DATA XREF: .text:004976DEo
 		unicode	0, <Unable to remove breakpoint at address !%08X. Memory is no>
@@ -3721,10 +3723,10 @@ aSuspiciousBr_0:			; DATA XREF: .text:00497BF3o
 		unicode	0, <Suspicious breakpoints>,0
 aYouAreGoingT_7:			; DATA XREF: .text:00497BE7o
 		unicode	0, <You are going to set execution breakpoints on several loc>
-		unicode	0, <ations. At least one of them \{for example, !%08X\} is proba>
-		unicode	0, <bly not the first byte of the command. This may disturb e>
-		unicode	0, <xecution or even crash the debugged application. Do you s>
-		unicode	0, <till want to set breakpoints!?>,0
+		unicode	0, <ations. At least one of them >
+		unicode 0, <\{for example, !%08X\} is probably not the first byte of>
+		unicode 0, < the command. This may disturb execution or even crash the>
+		unicode 0, < debugged application. Do you still want to set breakpoints!?>,0
 asc_54D38E:				; DATA XREF: .data:stru_54C6E4o
 		unicode	0, <\:>,0
 aDelete_1:				; DATA XREF: .data:stru_54C6E4o

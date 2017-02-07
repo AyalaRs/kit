@@ -394,7 +394,7 @@ loc_477A2B:				; CODE XREF: .text:004776ECj
 		call	_T
 		pop	ecx
 		push	eax		; _title
-		lea	ecx, aCpuDisasm;[esi+8BCh]
+		lea	ecx, aIco_c;[esi+8BCh]
 		push	ecx		; icon
 		push	ebx		; pf
 		call	Createframewindow

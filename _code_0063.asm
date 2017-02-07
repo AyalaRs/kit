@@ -26,12 +26,12 @@ loc_476154:				; CODE XREF: .text:00477F9Cp
 		mov	edi, stru_5E6D24.rtback
 		cmp	edi, 1
 		jnz	short loc_4761B3
-		mov	eax, (offset aModifyS+11h) ; ""
+		mov	eax, $CTW0("") ; ""
 		jmp	short loc_4761B8
 ; ---------------------------------------------------------------------------
 
 loc_4761B3:				; CODE XREF: .text:004761AAj
-		mov	eax, (offset aModifyS+10h) ; "s"
+		mov	eax, $CTW0("s") ; "s"
 
 loc_4761B8:				; CODE XREF: .text:004761B1j
 		push	eax

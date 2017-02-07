@@ -1185,7 +1185,8 @@ aQuisCustodietI:			; DATA XREF: .text:0040CDB8o
 aTopmostWindow:				; DATA XREF: .data:stru_50E0F4o
 		unicode	0, <Topmost window>,0
 aShowMainMenuIt:			; DATA XREF: .data:stru_50E0F4o
-		unicode	0, <Show main menu items that don\-t apply>,0
+		unicode	0, <Show main menu items>
+		unicode 0, < that don\-t apply>,0
 aShowPopupItems:			; DATA XREF: .data:stru_50E0F4o
 		unicode	0, <Show popup items that don\-t apply>,0
 aShowToolbar:				; DATA XREF: .data:stru_50E0F4o
@@ -2061,7 +2062,8 @@ a_exe:					; DATA XREF: .text:00413079o
 a_dll_1:				; DATA XREF: .text:loc_4130C0o
 		unicode	0, <.DLL>,0
 aUnableToSave_u:			; DATA XREF: .text:00413263o
-		unicode	0, <Unable to save .udd data for \-!%s\->,0
+		unicode	0, <Unable to save .udd data >
+		unicode 0, <for \-!%s\->,0
 aMain_0:				; DATA XREF: .text:004133F6o
 		unicode	0, < \{main\}>,0
 aLoader:				; DATA XREF: .text:00413435o
@@ -5975,7 +5977,8 @@ aAccuracy:				; DATA XREF: .data:0052235Co
 aHigh:					; DATA XREF: .data:00522384o
 		unicode	0, <High>,0
 aSearchWith1Flo:			; DATA XREF: .data:00522384o
-		unicode	0, <Search with 1 \{float\} or 2 \{double, long double\} least si>
+		unicode	0, <Search with 1 \{float\} or >
+		unicode 0, <2 \{double, long double\} least si>
 		unicode	0, <gnificant digit accuracy>,0
 a0_01:					; DATA XREF: .data:005223ACo
 					; .data:005223D4o
@@ -6822,10 +6825,12 @@ aPauseRunTrac_3:			; DATA XREF: .data:005268C4o
 		unicode	0, <Pause run trace when memory range 1 is accessed>,0
 aLowLimitOfMemo:			; DATA XREF: .data:005268ECo
 					; .data:00526F04o
-		unicode	0, <Low limit of memory range 1 \{hexadecimal\}>,0
+		unicode	0, <Low limit of memory range >
+		unicode 0, <1 \{hexadecimal\}>,0
 aHighLimitOfMem:			; DATA XREF: .data:0052693Co
 					; .data:00526F54o
-		unicode	0, <High limit of memory range 1 \{not included\}>,0
+		unicode	0, <High limit of memory range >
+		unicode 0, <1 \{not included\}>,0
 aReadWriteRW:				; DATA XREF: .data:0052698Co
 					; .data:00526A7Co ...
 		unicode	0, <Read|Write|R/W>,0
@@ -6838,10 +6843,12 @@ aPauseRunTrac_4:			; DATA XREF: .data:005269B4o
 		unicode	0, <Pause run trace when memory range 2 is accessed>,0
 aLowLimitOfMe_1:			; DATA XREF: .data:005269DCo
 					; .data:00526FF4o
-		unicode	0, <Low limit of memory range 2 \{hexadecimal\}>,0
+		unicode	0, <Low limit of memory range >
+		unicode 0, <2 \{hexadecimal\}>,0
 aHighLimitOfM_1:			; DATA XREF: .data:00526A2Co
 					; .data:00527044o
-		unicode	0, <High limit of memory range 2 \{not included\}>,0
+		unicode	0, <High limit of memory range >
+		unicode 0, <2 \{not included\}>,0
 aTypeOfMemory_0:			; DATA XREF: .data:00526A7Co
 		unicode	0, <Type of memory access to memory range 2>,0
 aCondition1IsTr:			; DATA XREF: .data:00526AA4o

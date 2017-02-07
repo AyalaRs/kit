@@ -939,6 +939,8 @@ rtback		dd ?			; XREF:	.text:004763EE/r
 					; .text:0047641C/r ...
 t_table		ends
 
+
+
 t_dump		struc ;	(sizeof=0x70C, copyof_223) ; XREF: .data:g_disasmdump/r
 					; .data:g_dumpdump/r ...
 base		dd ?
@@ -2190,7 +2192,6 @@ t_dumpcache	ends
 
 
 unicode macro t:REQ,text:REQ,E
-
 TW_ "&text"
 IFNB <E>
 dw 0

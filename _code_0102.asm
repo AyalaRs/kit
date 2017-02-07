@@ -678,7 +678,7 @@ loc_4CDFAC:				; CODE XREF: .text:004D0DA7p
 		push	esi
 		push	edi
 		mov	edi, offset aAcolorpick	; "ACOLORPICK"
- __DebugBreak
+ ;__DebugBreak
 		mov	esi, offset g_hInstance
 		lea	ebx, [ebp-28h]
 		push	ebx		; lpWndClass

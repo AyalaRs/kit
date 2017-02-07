@@ -1419,47 +1419,47 @@ loc_4C77A8:				; CODE XREF: .text:0040B058p
 		mov	ebp, esp
 		push	ebx
 		mov	ebx, offset aMemoryProtecti ; "Memory protection attributes in memory "...
-__DebugBreak
+;__DebugBreak
 		cmp	bpmem.bar.nbar,	0
 		jnz	loc_4C792F
-		lea	eax, [ebx+686h]
+		lea	eax, aMemoryBreakp_1;[ebx+686h]
 		push	eax		; src
 		push	offset bpmem	; dst
 		call	_wcscpy
 		mov	bpmem.mode, 0F0000h
-		lea	edx, [ebx+6ACh]
+		lea	edx, aAddress_4;[ebx+6ACh]
 		mov	bpmem.bar.visible, 1
 		mov	bpmem.bar._name,	edx
-		lea	ecx, [ebx+6BCh]
-		lea	eax, [ebx+6FEh]
+		lea	ecx, aAddressOfTheMe;[ebx+6BCh]
+		lea	eax, aSizeDecimal_1;[ebx+6FEh]
 		mov	bpmem.bar.expl,	ecx
 		mov	bpmem.bar.mode,	2
 		mov	bpmem.bar.defdx, 9
 		mov	bpmem.bar._name+4, eax
-		lea	edx, [ebx+724h]
-		lea	ecx, [ebx+788h]
+		lea	edx, aSizeOfTheMemor;[ebx+724h]
+		lea	ecx, aModule;[ebx+788h]
 		mov	bpmem.bar.expl+4, edx
 		mov	bpmem.bar.mode+4, 2
 		mov	bpmem.bar.defdx+4, 9
 		mov	bpmem.bar._name+8, ecx
-		lea	eax, [ebx+796h]
-		lea	edx, [ebx+7F2h]
+		lea	eax, aNameOfTheMod_1;[ebx+796h]
+		lea	edx, aType_7;[ebx+7F2h]
 		mov	bpmem.bar.expl+8, eax
 		mov	bpmem.bar.mode+8, 2
 		mov	bpmem.bar.defdx+8, 9
 		mov	bpmem.bar._name+0Ch, edx
-		lea	ecx, [ebx+7FCh]
-		lea	eax, [ebx+838h]
+		lea	ecx, aTypeOfTheMemor;[ebx+7FCh]
+		lea	eax, aStatus_1;[ebx+838h]
 		mov	bpmem.bar.expl+0Ch, ecx
 		mov	bpmem.bar.mode+0Ch, 2
 		mov	bpmem.bar.defdx+0Ch, 5
-		lea	edx, [ebx+846h]
+		lea	edx, aStatusOfTheMem;[ebx+846h]
 		mov	bpmem.bar._name+10h, eax
 		mov	bpmem.bar.expl+10h, edx
 		mov	bpmem.bar.mode+10h, 2
-		lea	ecx, [ebx+886h]
+		lea	ecx, aComment_0;[ebx+886h]
 		mov	bpmem.bar.defdx+10h, 0Ch
-		lea	eax, [ebx+886h]
+		lea	eax, aComment_0;[ebx+886h]
 		mov	bpmem.bar._name+14h, ecx
 		xor	edx, edx
 		mov	bpmem.bar.expl+14h, eax
@@ -1482,12 +1482,12 @@ __DebugBreak
 loc_4C792F:				; CODE XREF: .text:004C77B8j
 		cmp	bpmem.hw, 0
 		jnz	short loc_4C796B
-		lea	eax, [ebx+686h]
+		lea	eax, aMemoryBreakp_1;[ebx+686h]
 		push	eax		; src
 		call	_T
 		pop	ecx
 		push	eax		; _title
-		lea	edx, [ebx+896h]
+		lea	edx, aIco_m_yellow;[ebx+896h]
 		push	edx		; icon
 		mov	ecx, g_hInstance
 		push	ecx		; hi

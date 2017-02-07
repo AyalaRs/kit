@@ -3317,7 +3317,7 @@ loc_4CA290:				; DATA XREF: .data:stru_560730o
 		push	esi
 		push	edi
 		mov	edi, offset extent
-		mov	line, 0FFFFFFFFh
+		mov	g_line, 0FFFFFFFFh
 		xor	eax, eax
 		mov	[edi], eax
 		xor	edx, edx
@@ -3340,11 +3340,11 @@ loc_4CA290:				; DATA XREF: .data:stru_560730o
 		cmp	edx, srccode.sorted.selected
 		jle	short loc_4CA306
 		mov	ecx, srccode.sorted.selected
-		mov	line, ecx
+		mov	g_line, ecx
 
 loc_4CA306:				; CODE XREF: .text:004CA2EAj
 					; .text:004CA2F8j
-		mov	edx, line
+		mov	edx, g_line
 		test	edx, edx
 		jl	short loc_4CA332
 		push	offset nextent	; nextent

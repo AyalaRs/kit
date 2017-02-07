@@ -1176,77 +1176,78 @@ loc_4D65C4:				; CODE XREF: .text:0040B017p
 		mov	ebp, esp
 		push	ebx
 		mov	ebx, offset word_5763A4
+;__DebugBreak		
 		cmp	win.bar.nbar, 0
 		jnz	loc_4D6828
-		lea	eax, [ebx+774h]
+		lea	eax, aWindows_0;[ebx+774h]
 		push	eax		; src
 		push	20h		; n
 		push	offset win	; dest
 		call	StrcopyW
 		mov	win.mode, 0F0000h
-		lea	edx, [ebx+784h]
+		lea	edx, aHandle_0;[ebx+784h]
 		mov	win.bar.visible, 1
 		mov	win.bar._name, edx
-		lea	ecx, [ebx+792h]
-		lea	eax, [ebx+7B2h]
+		lea	ecx, aWindowSHandle;[ebx+792h]
+		lea	eax, aText_2;[ebx+7B2h]
 		mov	win.bar.expl, ecx
 		mov	win.bar.mode, 2
 		mov	win.bar.defdx, 0Dh
 		mov	win.bar._name+4,	eax
-		lea	edx, [ebx+7BCh]
-		lea	ecx, [ebx+7EAh]
+		lea	edx, aWindowSTitleOr;[ebx+7BCh]
+		lea	ecx, aParent_0;[ebx+7EAh]
 		mov	win.bar.expl+4,	edx
 		mov	win.bar.mode+4,	2
 		mov	win.bar.defdx+4, 20h
 		mov	win.bar._name+8,	ecx
-		lea	eax, [ebx+7F8h]
-		lea	edx, [ebx+0EEh]
+		lea	eax, aHandleOfParent;[ebx+7F8h]
+		lea	edx, $CTW0("WinProc");[ebx+0EEh]
 		mov	win.bar.expl+8,	eax
 		mov	win.bar.mode+8,	2
 		mov	win.bar.defdx+8, 9
 		mov	win.bar._name+0Ch, edx
-		lea	ecx, [ebx+828h]
-		lea	eax, [ebx+870h]
+		lea	ecx, aAddressOfWindo;[ebx+828h]
+		lea	eax, aIdMenu;[ebx+870h]
 		mov	win.bar.expl+0Ch, ecx
 		mov	win.bar.mode+0Ch, 2
 		mov	win.bar.defdx+0Ch, 9
 		mov	win.bar._name+10h, eax
-		lea	edx, [ebx+880h]
-		lea	ecx, [ebx+8D4h]
+		lea	edx, aIdentifierOfCh;[ebx+880h]
+		lea	ecx, aType_4;[ebx+8D4h]
 		mov	win.bar.expl+10h, edx
 		mov	win.bar.mode+10h, 2
 		mov	win.bar.defdx+10h, 9
 		mov	win.bar._name+14h, ecx
-		lea	eax, [ebx+8DEh]
-		lea	edx, [ebx+91Ch]
+		lea	eax, aWindowTypeAsci;[ebx+8DEh]
+		lea	edx, aStyle;[ebx+91Ch]
 		mov	win.bar.expl+14h, eax
 		mov	win.bar.mode+14h, 2
 		mov	win.bar.defdx+14h, 8
 		mov	win.bar._name+18h, edx
-		lea	ecx, [ebx+928h]
-		lea	eax, [ebx+960h]
+		lea	ecx, aWindowStyleSet;[ebx+928h]
+		lea	eax, aExtstyle;[ebx+960h]
 		mov	win.bar.expl+18h, ecx
 		mov	win.bar.mode+18h, 2
 		mov	win.bar.defdx+18h, 9
 		mov	win.bar._name+1Ch, eax
-		lea	edx, [ebx+972h]
-		lea	ecx, [ebx+9B4h]
+		lea	edx, aExtendedStyleS;[ebx+972h]
+		lea	ecx, aThread_3;[ebx+9B4h]
 		mov	win.bar.expl+1Ch, edx
 		mov	win.bar.mode+1Ch, 2
 		mov	win.bar.defdx+1Ch, 9
 		mov	win.bar._name+20h, ecx
-		lea	eax, [ebx+9C2h]
-		lea	edx, [ebx+0A06h]
+		lea	eax, aIdOfThreadThat;[ebx+9C2h]
+		lea	edx, aClsproc;[ebx+0A06h]
 		mov	win.bar.expl+20h, eax
 		mov	win.bar.mode+20h, 2
 		mov	win.bar.defdx+20h, 9
-		lea	ecx, [ebx+0A16h]
+		lea	ecx, aAddressOfDefau;[ebx+0A16h]
 		mov	win.bar._name+24h, edx
 		mov	win.bar.expl+24h, ecx
 		mov	win.bar.mode+24h, 2
-		lea	eax, [ebx+0A6Ch]
+		lea	eax, aClsname;[ebx+0A6Ch]
 		mov	win.bar.defdx+24h, 9
-		lea	edx, [ebx+0A7Ch]
+		lea	edx, aClassName;[ebx+0A7Ch]
 		mov	win.bar._name+28h, eax
 		mov	win.bar.expl+28h, edx
 		mov	win.bar.mode+28h, 2
@@ -1273,12 +1274,12 @@ loc_4D6828:				; CODE XREF: .text:004D65D4j
 loc_4D6836:				; CODE XREF: .text:004D682Fj
 		cmp	win.hw,	0
 		jnz	short loc_4D6872
-		lea	eax, [ebx+0A9Eh]
+		lea	eax, aListOfWindow_1;[ebx+0A9Eh]
 		push	eax		; src
 		call	_T
 		pop	ecx
 		push	eax		; _title
-		lea	edx, [ebx+0A92h]
+		lea	edx, aIco_w;[ebx+0A92h]
 		push	edx		; icon
 		mov	ecx, g_hInstance
 		push	ecx		; hi
@@ -2578,60 +2579,60 @@ loc_4D7318:				; CODE XREF: .text:0040B0C8p
 		mov	ebp, esp
 		push	ebx
 		mov	ebx, offset aEipInsideThePa ; "EIP inside the patch"
-__DebugBreak
+;__DebugBreak
 		cmp	patch.bar.nbar,	0
 		jnz	loc_4D74BE
-		lea	eax, [ebx+4BEh]
+		lea	eax, aPatches_2;[ebx+4BEh]
 		push	eax		; src
 		push	20h		; n
 		push	offset patch	; dest
 		call	StrcopyW
 		mov	patch.mode, 0F0000h
-		lea	edx, [ebx+4CEh]
+		lea	edx, aAddress_9;[ebx+4CEh]
 		mov	patch.bar.visible, 1
 		mov	patch.bar._name,	edx
-		lea	ecx, [ebx+4DEh]
+		lea	ecx, aPatchAddress;[ebx+4DEh]
 		xor	eax, eax
 		mov	patch.bar.expl,	ecx
 		mov	patch.bar.mode,	eax
-		lea	edx, [ebx+4FAh]
+		lea	edx, aModule_8;[ebx+4FAh]
 		mov	patch.bar.defdx, 9
 		mov	patch.bar._name+4, edx
-		lea	ecx, [ebx+508h]
+		lea	ecx, aNameOfTheMod_3;[ebx+508h]
 		xor	eax, eax
 		mov	patch.bar.expl+4, ecx
 		mov	patch.bar.mode+4, eax
-		lea	edx, [ebx+566h]
+		lea	edx, aSize_1;[ebx+566h]
 		mov	patch.bar.defdx+4, 9
 		mov	patch.bar._name+8, edx
-		lea	ecx, [ebx+570h]
+		lea	ecx, aSizeOfThePatch;[ebx+570h]
 		xor	eax, eax
 		mov	patch.bar.expl+8, ecx
 		mov	patch.bar.mode+8, eax
-		lea	edx, [ebx+5B6h]
+		lea	edx, aStatus_2;[ebx+5B6h]
 		mov	patch.bar.defdx+8, 5
 		mov	patch.bar._name+0Ch, edx
-		lea	ecx, [ebx+5C4h]
+		lea	ecx, aStatusOfThePat;[ebx+5C4h]
 		xor	eax, eax
 		mov	patch.bar.expl+0Ch, ecx
 		mov	patch.bar.mode+0Ch, eax
-		lea	edx, [ebx+5ECh]
+		lea	edx, aModifiedComm_2;[ebx+5ECh]
 		mov	patch.bar.defdx+0Ch, 8
 		mov	patch.bar._name+10h, edx
-		lea	ecx, [ebx+60Eh]
+		lea	ecx, aFirstModifie_1;[ebx+60Eh]
 		xor	eax, eax
 		mov	patch.bar.expl+10h, ecx
 		mov	patch.bar.mode+10h, eax
-		lea	edx, [ebx+63Ch]
+		lea	edx, aOriginalComm_1;[ebx+63Ch]
 		mov	patch.bar.defdx+10h, 20h
 		mov	patch.bar._name+14h, edx
-		lea	ecx, [ebx+65Eh]
+		lea	ecx, aFirstOrigina_1;[ebx+65Eh]
 		xor	eax, eax
 		mov	patch.bar.expl+14h, ecx
 		mov	patch.bar.mode+14h, eax
-		lea	edx, [ebx+68Ch]
+		lea	edx, aComments_3;[ebx+68Ch]
 		mov	patch.bar.defdx+14h, 20h
-		lea	ecx, [ebx+68Ch]
+		lea	ecx, aComments_3;[ebx+68Ch]
 		mov	patch.bar._name+18h, edx
 		xor	eax, eax
 		mov	patch.bar.expl+18h, ecx
@@ -2654,12 +2655,12 @@ __DebugBreak
 loc_4D74BE:				; CODE XREF: .text:004D7328j
 		cmp	patch.hw, 0
 		jnz	short loc_4D74FB
-		lea	ecx, [ebx+4BEh]
+		lea	ecx, aPatches_2;[ebx+4BEh]
 		push	ecx		; src
 		call	_T
 		pop	ecx
 		push	eax		; _title
-		lea	eax, [ebx+69Eh]
+		lea	eax, aIco_p_0;[ebx+69Eh]
 		push	eax		; icon
 		mov	edx, g_hInstance
 		push	edx		; hi

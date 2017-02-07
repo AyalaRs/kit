@@ -215,16 +215,9 @@ aAboutOllydbg:				; DATA XREF: .text:loc_401BB2o
 aOk_1:					; DATA XREF: .text:00401BC4o
 		unicode	0, <OK>,0
 aOllydbgVI_02iS:			; DATA XREF: .text:00401C06o
-		dw 0Ah
-		unicode	0, <OllyDbg v!%i.!%02i!%s!%s>
-		dw 2 dup(0Ah)
-		unicode	0, <32-bit Assembler-Level Debugger>
-		dw 2 dup(0Ah)
-		unicode	0, <Copyright >
-		dw 0A9h
-		db ' ',0
-aSSAllRightsRes:
-		unicode	0, <!%s !%s\lAll Rights Reserved\l\lThe product names mentioned in this>
+		unicode	0, <\lOllyDbg v!%i.!%02i!%s!%s\l\l32-bit Assembler-Level Debugger\l\l>
+		unicode	0, <Copyright \c !%s !%s\lAll Rights Reserved\l\l>
+		unicode 0, <The product names mentioned in this>
 		unicode	0, <\lsoftware may be trademarks or registered\l>
 		unicode	0, <trademarks of their respective owners.\l>
 		unicode	0, <\lFor the newest information, visit>,0
@@ -538,9 +531,7 @@ asc_4F7886:				; DATA XREF: .text:loc_401B45o
 		dw 3Eh,	0
 ; wchar_t aModuleentrypoi
 aModuleentrypoi:			; DATA XREF: .text:00406B09o
-		dw 3Ch
-		unicode	0, <ModuleEntryPoint>
-		dw 3Eh,	0
+		unicode	0, <\[ModuleEntryPoint\]>,0
 ; wchar_t aI__6
 aI__6:					; DATA XREF: .text:00406C85o
 		unicode	0, <[!%i.]>,0
@@ -554,8 +545,8 @@ aS__2:					; DATA XREF: .text:00406DF6o
 aRb_2:					; DATA XREF: .text:loc_407222o
 		unicode	0, <rb>,0
 aTimerI_3lfS7iC:			; DATA XREF: .text:0040764Eo
-		unicode	0, <Timer !%i: !%.3lf s, !%7i calls \{!%.3lf us/call\}>,0
-		db 0
-		db    0
+		unicode	0, <Timer !%i: !%.3lf s,> 
+		unicode 0, <!%7i calls \{!%.3lf us/call\}>,0
+		dw 0
 _data		ends
 		

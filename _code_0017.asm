@@ -1,6 +1,7 @@
 .code
 
 ; int __stdcall	WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
+public WinMain
 WinMain:				; DATA XREF: .data:004F61B0o
 		push	ebp
 		mov	ebp, esp
@@ -726,6 +727,7 @@ loc_40E2DA:				; CODE XREF: .text:0040E2C0j
 		mov	ecx, 1
 		mov	_SystemAffinityMask, ecx
 		mov	_ProcessAffinityMask, ecx
+		
 
 loc_40E2EB:				; CODE XREF: .text:0040E2D8j
 		call	loc_4DEA64
@@ -995,7 +997,7 @@ loc_40E69D:				; CODE XREF: .text:0040E9E6j
 		lea	edx, [edi+4]
 		push	edx
 		push	edi		; arglist
-		lea	ecx, aIIIIIIIIIIII
+		lea	ecx, aIIIIIIIIIIII	;"%i,%i,%i,%i,%i,%i,%i,%i,%i,%i,%i,%i"
 		push	ecx		; format
 		lea	eax, [ebp-950h]
 		push	eax		; key
@@ -1482,7 +1484,7 @@ loc_40ECC8:				; CODE XREF: .text:0040ED65j
 		add	esp, 0Ch
 		lea	edx, [edi+8]
 		lea	ecx, [edi+4]
-		lea	eax, aIIIII
+		lea	eax, $CTW0("%i,%i,%i")
 		push	edx
 		push	ecx
 		push	edi		; arglist
@@ -1522,6 +1524,7 @@ loc_40ECC8:				; CODE XREF: .text:0040ED65j
 		or	eax, edx
 		mov	[esi+ecx*4], eax
 
+		public loc_40ED5E
 loc_40ED5E:				; CODE XREF: .text:0040ED10j
 					; .text:0040ED15j ...
 		inc	dword ptr [ebp-4]
@@ -1686,6 +1689,7 @@ loc_40ED5E:				; CODE XREF: .text:0040ED10j
 		mov	eax, [esi+3Ch]
 		add	esp, 8
 		mov	tmpscheme.textcolor+978h, eax
+	echo ???	
 		mov	edi, (offset tmpscheme._name+0CA0h)
 		mov	edx, [esi]
 		mov	tmpscheme.bkcolor+978h,	edx

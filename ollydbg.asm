@@ -45,6 +45,13 @@ DEBUG EQU 0
 include _inc.inc
 include _common.inc
 
+comment #
+.code
+start:
+mov eax,sizeof DECIMAL
+end start
+;#
+
 include _data_01.asm
 include _data_02.asm
 include _data_03.asm

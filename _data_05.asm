@@ -2265,7 +2265,8 @@ aUnableToExtr_1:
 a_pif_1:
 		unicode	0, <.PIF>,0
 aProgramInforma:
-		unicode	0, <Program Information File \-!%s\- is a shortcut to MS-DOS program. >
+		unicode	0, <Program Information File >
+		unicode 0, <\-!%s\- is a shortcut to MS-DOS program. >
 		unicode 0, <OllyDbg is unable to debug 16-bit code.>,0
 a_exe_3:
 		unicode	0, <.exe>,0
@@ -2493,8 +2494,8 @@ aKernel32_exitp:			; DATA XREF: .text:0044FEDFo
 aUnableToCloseG:			; DATA XREF: .text:0044FFB7o
 		unicode	0, <Unable to close gracefully>,0
 aOllydbgIsUna_0:			; DATA XREF: .text:0044FFABo
-		unicode	0, <OllyDbg is unable to close debugged process gracefully an>
-		unicode	0, <d will use TerminateProcess\{\}, which may lead to the loss>
+		unicode	0, <OllyDbg is unable to close debugged process gracefully and >
+		unicode	0, <will use TerminateProcess\{\}, which may lead to the loss>
 		unicode	0, < of data in the files opened by the application.>,0
 aUnableToCloseD:			; DATA XREF: .text:004500ADo
 		unicode	0, <Unable to close debugged process>,0
@@ -2644,14 +2645,16 @@ aOllydbgReceive:			; DATA XREF: .text:004517CEo
 		unicode	0, < to debug. This is a severe internal error, please restar>
 		unicode	0, <t OllyDbg.>,0
 aUnrecoverableE:			; DATA XREF: .text:004518E7o
-		unicode	0, <Unrecoverable exception !%08X \{no thread\}>,0
+		unicode	0, <Unrecoverable exception >
+		unicode 0, <!%08X \{no thread\}>,0
 aThread08xThatR:			; DATA XREF: .text:0045192Bo
 		unicode	0, <Thread !%08X that reported exception !%08X at address !%08X >
 		unicode	0, <is not known to OllyDbg. Usually this makes correct conti>
 		unicode	0, <nuation impossible. However, you may try to recover and c>
 		unicode	0, <ontinue at your own risk.>,0
 aUnrecoverabl_1:			; DATA XREF: .text:00451990o
-		unicode	0, <Unrecoverable exception !%08X \{no registers\}>,0
+		unicode	0, <Unrecoverable exception >
+		unicode 0, <!%08X \{no registers\}>,0
 aOllydbgIsUna_6:			; DATA XREF: .text:004519D4o
 		unicode	0, <OllyDbg is unable to read registers for exception !%08X at>
 		unicode	0, < \{possibly invalid\} address !%08X in thread !%08X. Usually >

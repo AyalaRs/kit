@@ -575,7 +575,8 @@ aModuleSContain:			; DATA XREF: .text:004ACDBFo
 		unicode	0, < contains corrupted breakpoints, where the first byte of >
 		unicode	0, <the current command differs from that in the previous deb>
 		unicode	0, <ugging session. This happens when program was recompiled,>
-		unicode	0, < the code is self-modifiable \{for example, self-extractin>
+		unicode	0, < the code is self-modifiable >
+		unicode 0, <\{for example, self-extractin>
 		unicode	0, <g\} or when breakpoint was set on the patched code.>
 		dw 2 dup(0Ah)
 		unicode	0, <For security reasons, OllyDbg will disable suspicious INT>

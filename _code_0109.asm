@@ -2053,7 +2053,7 @@ loc_4DD068:				; CODE XREF: .text:00409F65p
 		push	edi
 		lea	ebx, [ebp-6E0h]
 		mov	edi, offset aI_11 ; "%i"
-__DebugBreak
+;__DebugBreak
 		cmp	_imp__NtQuerySystemInformation,	0
 		jz	short loc_4DD0A1
 		cmp	_imp__NtDuplicateObject, 0
@@ -2281,7 +2281,7 @@ loc_4DD2DD:				; CODE XREF: .text:004DD2D3j
 
 loc_4DD2F5:				; CODE XREF: .text:004DD2DBj
 		xor	edx, edx
-		lea	eax, [edi+6]
+		lea	eax, aKey;[edi+6]
 		mov	[ebx+5Ch], edx
 		mov	[ebx+58h], edx
 		mov	word ptr [ebx+268h], 0
@@ -2308,7 +2308,7 @@ loc_4DD2F5:				; CODE XREF: .text:004DD2DBj
 ; ---------------------------------------------------------------------------
 
 loc_4DD34B:				; CODE XREF: .text:004DD318j
-		lea	eax, [edi+0Eh]
+		lea	eax, aFile_3;[edi+0Eh]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2323,7 +2323,7 @@ loc_4DD34B:				; CODE XREF: .text:004DD318j
 		cmp	dword ptr [ebp-8], 3
 		jnz	short loc_4DD39A
 		or	dword ptr [ebx+8], 200000h
-		lea	eax, [edi+18h]
+		lea	eax, aFilePipe;[edi+18h]
 		push	eax		; src
 		call	_T
 		pop	ecx
@@ -2340,7 +2340,7 @@ loc_4DD39A:				; CODE XREF: .text:004DD373j
 		cmp	dword ptr [ebp-8], 2
 		jnz	loc_4DD454
 		or	dword ptr [ebx+8], 300000h
-		lea	ecx, [edi+30h]
+		lea	ecx, aFileChar;[edi+30h]
 		push	ecx		; src
 		call	_T
 		pop	ecx
@@ -2352,7 +2352,7 @@ loc_4DD39A:				; CODE XREF: .text:004DD373j
 		add	esp, 0Ch
 		cmp	_imp__QueryDosDeviceW, 0
 		jz	loc_4DDA02
-		lea	edx, [edi+48h]
+		lea	edx, aCom0;[edi+48h]
 		lea	ecx, [ebp-70h]
 		push	edx		; src
 		push	20h		; n
@@ -2379,7 +2379,7 @@ loc_4DD3E8:				; CODE XREF: .text:004DD44Dj
 		add	esp, 8
 		test	eax, eax
 		jnz	short loc_4DD449
-		lea	edx, [edi+52h]
+		lea	edx, $CTW0(":");[edi+52h]
 		lea	ecx, [ebp-68h]
 		push	edx		; src
 		push	1Ch		; n
@@ -2408,7 +2408,7 @@ loc_4DD454:				; CODE XREF: .text:004DD39Ej
 		cmp	dword ptr [ebp-8], 1
 		jz	short loc_4DD47F
 		or	dword ptr [ebx+8], offset stru_4FFFE8.postbyte
-		lea	ecx, [edi+56h]
+		lea	ecx, aFileDev;[edi+56h]
 		push	ecx		; src
 		call	_T
 		pop	ecx
@@ -2424,7 +2424,7 @@ loc_4DD454:				; CODE XREF: .text:004DD39Ej
 loc_4DD47F:				; CODE XREF: .text:004DD458j
 		cmp	_imp__QueryDosDeviceW, 0
 		jz	loc_4DD53C
-		lea	edx, [edi+6Ch]
+		lea	edx, aA_2;[edi+6Ch]
 		lea	ecx, [ebp-70h]
 		push	edx		; src
 		push	20h		; n
@@ -2501,7 +2501,7 @@ loc_4DD53C:				; CODE XREF: .text:004DD486j
 		test	esi, 10h
 		jz	short loc_4DD57D
 		or	dword ptr [ebx+8], 400000h
-		lea	eax, [edi+72h]
+		lea	eax, aFileDir;[edi+72h]
 		push	eax		; src
 		call	_T
 		pop	ecx
@@ -2518,7 +2518,7 @@ loc_4DD57D:				; CODE XREF: .text:004DD559j
 		test	byte ptr [ebp-8], 4
 		jz	short loc_4DD5A8
 		or	dword ptr [ebx+8], 100000h
-		lea	ecx, [edi+88h]
+		lea	ecx, aFileSys;[edi+88h]
 		push	ecx		; src
 		call	_T
 		pop	ecx
@@ -2535,7 +2535,7 @@ loc_4DD5A8:				; CODE XREF: .text:004DD581j
 		test	byte ptr [ebp-7], 1
 		jz	short loc_4DD5D3
 		or	dword ptr [ebx+8], 100000h
-		lea	edx, [edi+9Eh]
+		lea	edx, aFileTemp;[edi+9Eh]
 		push	edx		; src
 		call	_T
 		pop	ecx
@@ -2583,7 +2583,7 @@ loc_4DD600:				; CODE XREF: .text:004DD5F9j
 ; ---------------------------------------------------------------------------
 
 loc_4DD627:				; CODE XREF: .text:004DD35Dj
-		lea	edx, [edi+0B6h]
+		lea	edx, aSemaphore;[edi+0B6h]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2618,7 +2618,7 @@ loc_4DD627:				; CODE XREF: .text:004DD35Dj
 
 loc_4DD685:				; CODE XREF: .text:004DD63Cj
 					; .text:004DD645j
-		lea	eax, [edi+0CAh]
+		lea	eax, aToken;[edi+0CAh]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2631,7 +2631,7 @@ loc_4DD685:				; CODE XREF: .text:004DD63Cj
 ; ---------------------------------------------------------------------------
 
 loc_4DD6A8:				; CODE XREF: .text:004DD69Aj
-		lea	ecx, [edi+0D6h]
+		lea	ecx, aType_9;[edi+0D6h]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2644,7 +2644,7 @@ loc_4DD6A8:				; CODE XREF: .text:004DD69Aj
 ; ---------------------------------------------------------------------------
 
 loc_4DD6CB:				; CODE XREF: .text:004DD6BDj
-		lea	edx, [edi+0E0h]
+		lea	edx, aDirectory;[edi+0E0h]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2657,7 +2657,7 @@ loc_4DD6CB:				; CODE XREF: .text:004DD6BDj
 ; ---------------------------------------------------------------------------
 
 loc_4DD6EE:				; CODE XREF: .text:004DD6E0j
-		lea	eax, [edi+0F4h]
+		lea	eax, aSymboliclink;[edi+0F4h]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2670,7 +2670,7 @@ loc_4DD6EE:				; CODE XREF: .text:004DD6E0j
 ; ---------------------------------------------------------------------------
 
 loc_4DD711:				; CODE XREF: .text:004DD703j
-		lea	ecx, [edi+10Eh]
+		lea	ecx, aProcess;[edi+10Eh]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2683,7 +2683,7 @@ loc_4DD711:				; CODE XREF: .text:004DD703j
 ; ---------------------------------------------------------------------------
 
 loc_4DD734:				; CODE XREF: .text:004DD726j
-		lea	edx, [edi+11Eh]
+		lea	edx, aThread_5;[edi+11Eh]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2696,7 +2696,7 @@ loc_4DD734:				; CODE XREF: .text:004DD726j
 ; ---------------------------------------------------------------------------
 
 loc_4DD757:				; CODE XREF: .text:004DD749j
-		lea	eax, [edi+12Ch]
+		lea	eax, aJob;[edi+12Ch]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2709,7 +2709,7 @@ loc_4DD757:				; CODE XREF: .text:004DD749j
 ; ---------------------------------------------------------------------------
 
 loc_4DD77A:				; CODE XREF: .text:004DD76Cj
-		lea	ecx, [edi+134h]
+		lea	ecx, aDebugobject;[edi+134h]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2722,7 +2722,7 @@ loc_4DD77A:				; CODE XREF: .text:004DD76Cj
 ; ---------------------------------------------------------------------------
 
 loc_4DD79D:				; CODE XREF: .text:004DD78Fj
-		lea	edx, [edi+14Ch]
+		lea	edx, aEvent_0;[edi+14Ch]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2735,7 +2735,7 @@ loc_4DD79D:				; CODE XREF: .text:004DD78Fj
 ; ---------------------------------------------------------------------------
 
 loc_4DD7C0:				; CODE XREF: .text:004DD7B2j
-		lea	eax, [edi+158h]
+		lea	eax, aEventpair;[edi+158h]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2748,7 +2748,7 @@ loc_4DD7C0:				; CODE XREF: .text:004DD7B2j
 ; ---------------------------------------------------------------------------
 
 loc_4DD7E3:				; CODE XREF: .text:004DD7D5j
-		lea	ecx, [edi+16Ch]
+		lea	ecx, aMutant;[edi+16Ch]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2761,7 +2761,7 @@ loc_4DD7E3:				; CODE XREF: .text:004DD7D5j
 ; ---------------------------------------------------------------------------
 
 loc_4DD806:				; CODE XREF: .text:004DD7F8j
-		lea	edx, [edi+17Ah]
+		lea	edx, aCallback_3;[edi+17Ah]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2774,7 +2774,7 @@ loc_4DD806:				; CODE XREF: .text:004DD7F8j
 ; ---------------------------------------------------------------------------
 
 loc_4DD829:				; CODE XREF: .text:004DD81Bj
-		lea	eax, [edi+18Ch]
+		lea	eax, aTimer;[edi+18Ch]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2787,7 +2787,7 @@ loc_4DD829:				; CODE XREF: .text:004DD81Bj
 ; ---------------------------------------------------------------------------
 
 loc_4DD84C:				; CODE XREF: .text:004DD83Ej
-		lea	ecx, [edi+198h]
+		lea	ecx, aProfile_3;[edi+198h]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2800,7 +2800,7 @@ loc_4DD84C:				; CODE XREF: .text:004DD83Ej
 ; ---------------------------------------------------------------------------
 
 loc_4DD86F:				; CODE XREF: .text:004DD861j
-		lea	edx, [edi+1A8h]
+		lea	edx, aKeyedevent;[edi+1A8h]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2813,7 +2813,7 @@ loc_4DD86F:				; CODE XREF: .text:004DD861j
 ; ---------------------------------------------------------------------------
 
 loc_4DD892:				; CODE XREF: .text:004DD884j
-		lea	eax, [edi+1BEh]
+		lea	eax, aWindowstation;[edi+1BEh]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2826,7 +2826,7 @@ loc_4DD892:				; CODE XREF: .text:004DD884j
 ; ---------------------------------------------------------------------------
 
 loc_4DD8B5:				; CODE XREF: .text:004DD8A7j
-		lea	ecx, [edi+1DAh]
+		lea	ecx, aDesktop_0;[edi+1DAh]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2839,7 +2839,7 @@ loc_4DD8B5:				; CODE XREF: .text:004DD8A7j
 ; ---------------------------------------------------------------------------
 
 loc_4DD8D8:				; CODE XREF: .text:004DD8CAj
-		lea	edx, [edi+1EAh]
+		lea	edx, aSection_1;[edi+1EAh]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2852,7 +2852,7 @@ loc_4DD8D8:				; CODE XREF: .text:004DD8CAj
 ; ---------------------------------------------------------------------------
 
 loc_4DD8FB:				; CODE XREF: .text:004DD8EDj
-		lea	eax, [edi+1FAh]
+		lea	eax, aPort;[edi+1FAh]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2865,7 +2865,7 @@ loc_4DD8FB:				; CODE XREF: .text:004DD8EDj
 ; ---------------------------------------------------------------------------
 
 loc_4DD91E:				; CODE XREF: .text:004DD910j
-		lea	ecx, [edi+204h]
+		lea	ecx, aWaitableport;[edi+204h]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2878,7 +2878,7 @@ loc_4DD91E:				; CODE XREF: .text:004DD910j
 ; ---------------------------------------------------------------------------
 
 loc_4DD941:				; CODE XREF: .text:004DD933j
-		lea	edx, [edi+21Eh]
+		lea	edx, aAdapter;[edi+21Eh]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2891,7 +2891,7 @@ loc_4DD941:				; CODE XREF: .text:004DD933j
 ; ---------------------------------------------------------------------------
 
 loc_4DD964:				; CODE XREF: .text:004DD956j
-		lea	eax, [edi+22Eh]
+		lea	eax, aController;[edi+22Eh]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2904,7 +2904,7 @@ loc_4DD964:				; CODE XREF: .text:004DD956j
 ; ---------------------------------------------------------------------------
 
 loc_4DD984:				; CODE XREF: .text:004DD979j
-		lea	ecx, [edi+244h]
+		lea	ecx, aDevice;[edi+244h]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2917,7 +2917,7 @@ loc_4DD984:				; CODE XREF: .text:004DD979j
 ; ---------------------------------------------------------------------------
 
 loc_4DD9A4:				; CODE XREF: .text:004DD999j
-		lea	edx, [edi+252h]
+		lea	edx, aDriver;[edi+252h]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2930,7 +2930,7 @@ loc_4DD9A4:				; CODE XREF: .text:004DD999j
 ; ---------------------------------------------------------------------------
 
 loc_4DD9C4:				; CODE XREF: .text:004DD9B9j
-		lea	eax, [edi+260h]
+		lea	eax, aIocompletion;[edi+260h]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -2943,7 +2943,7 @@ loc_4DD9C4:				; CODE XREF: .text:004DD9B9j
 ; ---------------------------------------------------------------------------
 
 loc_4DD9E4:				; CODE XREF: .text:004DD9D9j
-		lea	ecx, [edi+27Ah]
+		lea	ecx, aWmiguid;[edi+27Ah]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -2987,7 +2987,7 @@ loc_4DDA37:				; CODE XREF: .text:004DDA1Aj
 loc_4DDA47:				; CODE XREF: .text:004DDA3Ej
 		cmp	word ptr [ebx+68h], 0
 		jz	short loc_4DDAC1
-		lea	edx, [edi+1BEh]
+		lea	edx, aWindowstation;[edi+1BEh]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -2995,7 +2995,7 @@ loc_4DDA47:				; CODE XREF: .text:004DDA3Ej
 		add	esp, 8
 		test	eax, eax
 		jz	short loc_4DDAC1
-		lea	eax, [edi+1DAh]
+		lea	eax, aDesktop_0;[edi+1DAh]
 		push	eax		; s2
 		lea	edx, [ebx+0Ch]
 		push	edx		; s1
@@ -3003,7 +3003,7 @@ loc_4DDA47:				; CODE XREF: .text:004DDA3Ej
 		add	esp, 8
 		test	eax, eax
 		jz	short loc_4DDAC1
-		lea	ecx, [edi+0E0h]
+		lea	ecx, aDirectory;[edi+0E0h]
 		push	ecx		; s2
 		lea	eax, [ebx+0Ch]
 		push	eax		; s1
@@ -3011,7 +3011,7 @@ loc_4DDA47:				; CODE XREF: .text:004DDA3Ej
 		add	esp, 8
 		test	eax, eax
 		jz	short loc_4DDAC1
-		lea	edx, [edi+16Ch]
+		lea	edx, aMutant;[edi+16Ch]
 		push	edx		; s2
 		lea	ecx, [ebx+0Ch]
 		push	ecx		; s1
@@ -3019,7 +3019,7 @@ loc_4DDA47:				; CODE XREF: .text:004DDA3Ej
 		add	esp, 8
 		test	eax, eax
 		jnz	short loc_4DDAC8
-		lea	eax, [edi+28Ah]
+		lea	eax, aNlscachemutant;[edi+28Ah]
 		push	eax		; s2
 		lea	edx, [ebx+68h]
 		push	edx		; s1

@@ -1693,7 +1693,7 @@ g_src_base	dd ?			; DATA XREF: .text:004CA2D0r
 g_src_path	dw 104h	dup(?)		; 0 ; DATA XREF: .text:004CA2CBo
 dword_5FCD90	dd ?			; DATA XREF: .text:004CA2DEw
 ; int line
-line		dd ?			; DATA XREF: .text:004CA29Bw
+g_line		dd ?			; DATA XREF: .text:004CA29Bw
 ; t_srcext *extent
 extent		dd ?			; DATA XREF: .text:004CA296o
 ; int nextent
@@ -1711,7 +1711,8 @@ prtype		dw 20h dup(?)		; 0 ; DATA XREF: .text:004CBB2Fw
 ; t_dialog stru_5FF1A8
 stru_5FF1A8	t_dialog <>		; DATA XREF: .text:loc_4CF2CFo
 dword_5FF224	dd ?			; DATA XREF: .text:loc_4CDE86w
-; HGLOBAL dword_5FF228
+; t_control* dword_5FF228
+public dword_5FF228
 dword_5FF228	dd ?			; DATA XREF: .text:004CD94Er
 dword_5FF22C	dd ?			; DATA XREF: .text:loc_4CD96Fr
 dword_5FF230	dd ?			; DATA XREF: .text:004CF85Ar

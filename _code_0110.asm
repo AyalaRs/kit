@@ -571,56 +571,56 @@ loc_4DE068:				; CODE XREF: .text:0040B03Ep
 		mov	ebp, esp
 		push	ebx
 		mov	ebx, offset aI_11 ; "%i"
-__DebugBreak
+;__DebugBreak
 		cmp	handles.bar.nbar, 0
 		jnz	loc_4DE20F
-		lea	eax, [ebx+892h]
+		lea	eax, aHandles_0;[ebx+892h]
 		push	eax		; src
 		push	offset handles	; dst
 		call	_wcscpy
 		mov	handles.mode, 0F0000h
-		lea	edx, [ebx+8A2h]
+		lea	edx, aHandle_1;[ebx+8A2h]
 		mov	handles.bar.visible, 1
 		mov	handles.bar._name, edx
-		lea	ecx, [ebx+8B0h]
-		lea	eax, [ebx+0D6h]
+		lea	ecx, aHandleInTheCon;[ebx+8B0h]
+		lea	eax, aType_9;[ebx+0D6h]
 		mov	handles.bar.expl, ecx
 		mov	handles.bar.mode, 2
 		mov	handles.bar.defdx, 9
 		mov	handles.bar._name+4, eax
-		lea	edx, [ebx+90Ch]
-		lea	ecx, [ebx+932h]
+		lea	edx, aTypeOfTheHan_0;[ebx+90Ch]
+		lea	ecx, aRefs;[ebx+932h]
 		mov	handles.bar.expl+4, edx
 		mov	handles.bar.mode+4, 2
 		mov	handles.bar.defdx+4, 0Fh
-		lea	eax, [ebx+93Ch]
+		lea	eax, aReferenceCount;[ebx+93Ch]
 		mov	handles.bar._name+8, ecx
 		mov	handles.bar.expl+8, eax
 		mov	handles.bar.mode+8, 2
-		lea	edx, [ebx+95Ch]
+		lea	edx, aAccess_0;[ebx+95Ch]
 		mov	handles.bar.defdx+8, 6
 		mov	handles.bar._name+0Ch, edx
-		lea	ecx, [ebx+96Ah]
+		lea	ecx, aAccessRights;[ebx+96Ah]
 		xor	eax, eax
 		mov	handles.bar.expl+0Ch, ecx
 		mov	handles.bar.mode+0Ch, eax
-		lea	edx, [ebx+986h]
+		lea	edx, aTag;[ebx+986h]
 		mov	handles.bar.defdx+0Ch, 9
 		mov	handles.bar._name+10h, edx
-		lea	ecx, [ebx+98Eh]
+		lea	ecx, aAllowsToDistin;[ebx+98Eh]
 		xor	eax, eax
 		mov	handles.bar.expl+10h, ecx
 		mov	handles.bar.mode+10h, eax
-		lea	edx, [ebx+9E4h]
+		lea	edx, aInfo_0;[ebx+9E4h]
 		mov	handles.bar.defdx+10h, 4
 		mov	handles.bar._name+14h, edx
-		lea	ecx, [ebx+9EEh]
+		lea	ecx, aHandleRelatedI;[ebx+9EEh]
 		xor	eax, eax
 		mov	handles.bar.expl+14h, ecx
 		mov	handles.bar.mode+14h, eax
-		lea	edx, [ebx+3]
+		lea	edx, $CTW0("");[ebx+3]
 		mov	handles.bar.defdx+14h, 14h
-		lea	ecx, [ebx+3]
+		lea	ecx, $CTW0("");[ebx+3]
 		mov	handles.bar._name+18h, edx
 		mov	handles.bar.expl+18h, ecx
 		mov	handles.bar.mode+18h, 1
@@ -648,12 +648,12 @@ loc_4DE20F:				; CODE XREF: .text:004DE078j
 loc_4DE222:				; CODE XREF: .text:004DE21Bj
 		cmp	handles.hw, 0
 		jnz	short loc_4DE25E
-		lea	edx, [ebx+892h]
+		lea	edx, aHandles_0;[ebx+892h]
 		push	edx		; src
 		call	_T
 		pop	ecx
 		push	eax		; _title
-		lea	ecx, [ebx+0A24h]
+		lea	ecx, aIco_h_0;[ebx+0A24h]
 		push	ecx		; icon
 		mov	eax, g_hInstance
 		push	eax		; hi
