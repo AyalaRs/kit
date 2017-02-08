@@ -3,8 +3,7 @@ _data		segment	para public 'DATA' use32
 aWt_1:
 		unicode	0, <wt>,0
 aConstT_bincmdB	db 'const t_bincmd bincmd[] = {',0Ah,0
-aTS		db 0Ah
-		db '  { T\{\=!%S\=\},',0Ah,0
+aTS				db 0Ah,'  { T("%S"),',0Ah,0
 aD_cmd		db 'D_CMD',0
 aD_mov		db 'D_MOV',0
 aD_movc		db 'D_MOVC',0

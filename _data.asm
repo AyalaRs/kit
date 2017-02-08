@@ -428,8 +428,10 @@ dword_58622E	dd ?			; DATA XREF: .text:0045BAD2o
 ; Exported entry 842. _hilite
 ; Exported entry 843. hilite
 ; t_scheme hilite[8]
+public hilite
 hilite		t_scheme 8 dup(<>)	; DATA XREF: .text:0040D131o
 					; _hilite
+public tmphilite
 ; t_scheme tmphilite[]
 tmphilite	t_scheme 8 dup(<>)	; DATA XREF: .text:0040D12Ao
 ; t_cmdinfo tmpcmdinfo[]

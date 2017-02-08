@@ -1088,7 +1088,7 @@ aOllydbgExcepti	db 'OLLYDBG EXCEPTION PROTOCOL',0Ah ; DATA XREF: .text:loc_40C7C
 		db 'Feel free to remove any private data. Thank you for your help!',0Ah
 		db 0Ah,0
 ; char aOperatingSyste[]
-aOperatingSyste	db 'Operating system:   !%i.!%i.!%i, platform !%i \{!%s\}',0Ah,0
+aOperatingSyste	db 'Operating system:   !%i.!%i.!%i, platform !%i (!%s)',0Ah,0
 ; char aOllydbgVersion[]
 aOllydbgVersion	db 'OllyDbg version:    !%i.!%02i.!%02i',0 ; DATA XREF: .text:0040C80Ao
 ; char aExceptionCode0[]
@@ -1137,7 +1137,7 @@ asc_51142A	db 0Ah			; DATA XREF: .text:0040CB26o
 		db '          ',0
 ; char aS_2[]
 aS_2		db 0Ah			; DATA XREF: .text:0040CB7Do
-		db '          \{!%S\}',0
+		db '          (!%S)',0
 ; char aSettings_0[]
 aSettings_0	db 0Ah			; DATA XREF: .text:loc_40CBBDo
 		db 0Ah
@@ -1721,7 +1721,7 @@ Text		db 'OllyDbg 2 is a UNICODE application and will not work without UNIC'
 aWindows95Unico	db 'Windows 95 UNICODE alert',0 ; DATA XREF: .text:00409791o
 ; CHAR aOllydbg2WasUna[]
 aOllydbg2WasUna	db 'OllyDbg 2 was unable to attach to the Microsoft Layer for UNICODE'
-		db ' \{UNICOWS.DLL\}. Try using OllyDbg 1.10 instead.',0
+		db ' (UNICOWS.DLL). Try using OllyDbg 1.10 instead.',0
 		db 0
 a_odwin:
 		unicode	0, <_ODWin>,0
@@ -3185,114 +3185,114 @@ stru_51AB0C	t_control <7Dh, 0C81h, 5, 5, 122h, 0B9h, 0, offset ottable, 0, 0>; 0
 		t_control <0, 0FFFFFFFFh, 0, 0, 12Ch, 109h, 0, \ ; \=Shortcut editor\=
       offset aOpenShortcutEd+0Ah, 0, 0>; 0
 dword_51AD64	dd 0			; 0 ; DATA XREF: .text:00423834o
-dword_51AD68	dd 'A'                  ; 0 ; DATA XREF: .text:00424C69o
-		dd 'B'                  ; 0
-		dd 'C'                  ; 0
-		dd 'D'                  ; 0
-		dd 'E'                  ; 0
-		dd 'F'                  ; 0
-		dd 'G'                  ; 0
-		dd 'H'                  ; 0
-		dd 'I'                  ; 0
-		dd 'J'                  ; 0
-		dd 'K'                  ; 0
-		dd 'L'                  ; 0
-		dd 'M'                  ; 0
-		dd 'N'                  ; 0
-		dd 'O'                  ; 0
-		dd 'P'                  ; 0
-		dd 'Q'                  ; 0
-		dd 'R'                  ; 0
-		dd 'S'                  ; 0
-		dd 'T'                  ; 0
-		dd 'U'                  ; 0
-		dd 'V'                  ; 0
-		dd 'W'                  ; 0
-		dd 'X'                  ; 0
-		dd 'Y'                  ; 0
-		dd 'Z'                  ; 0
-		dd ' '                  ; 0
-		dd 10030h		; 0
-		dd 10031h		; 0
-		dd 10032h		; 0
-		dd 10033h		; 0
-		dd 10034h		; 0
-		dd 10035h		; 0
-		dd 10036h		; 0
-		dd 10037h		; 0
-		dd 10038h		; 0
-		dd 10039h		; 0
-		dd 'p'                  ; 0
-		dd 'q'                  ; 0
-		dd 'r'                  ; 0
-		dd 's'                  ; 0
-		dd 't'                  ; 0
-		dd 'u'                  ; 0
-		dd 'v'                  ; 0
-		dd 'w'                  ; 0
-		dd 'x'                  ; 0
-		dd 'y'                  ; 0
-		dd 'z'                  ; 0
-		dd '{'                  ; 0
-		dd 10060h		; 0
-		dd 1007Eh		; 0
-		dd 10021h		; 0
-		dd 10040h		; 0
-		dd 10024h		; 0
-		dd 10025h		; 0
-		dd 1005Eh		; 0
-		dd 10026h		; 0
-		dd 1002Ah		; 0
-		dd 10028h		; 0
-		dd 10029h		; 0
-		dd 1002Dh		; 0
-		dd 1005Fh		; 0
-		dd 1003Dh		; 0
-		dd 1002Bh		; 0
-		dd 1005Bh		; 0
-		dd 1005Dh		; 0
-		dd 1007Bh		; 0
-		dd 1007Dh		; 0
-		dd 1005Ch		; 0
-		dd 1007Ch		; 0
-		dd 1003Bh		; 0
-		dd 1003Ah		; 0
-		dd 10027h		; 0
-		dd 10022h		; 0
-		dd 1002Ch		; 0
-		dd 1002Eh		; 0
-		dd 1003Ch		; 0
-		dd 1003Eh		; 0
-		dd 1002Fh		; 0
-		dd 1003Fh		; 0
-		dd '\A'                  ; 0
-		dd '\{'                  ; 0
-		dd '!%'                  ; 0
-		dd 27h			; 0
-		dd '!'                  ; 0
-		dd '\='                  ; 0
-		dd '$'                  ; 0
-		dd '#'                  ; 0
-		dd 0Dh			; 0
-		dd 8			; 0
-		dd '.'                  ; 0
-		dd '-'                  ; 0
-		dd 9			; 0
-		dd 'j'                  ; 0
-		dd 'k'                  ; 0
-		dd 'm'                  ; 0
-		dd 'o'                  ; 0
-		dd '`'                  ; 0
-		dd 'a'                  ; 0
-		dd 'b'                  ; 0
-		dd 'c'                  ; 0
-		dd 'd'                  ; 0
-		dd 'e'                  ; 0
-		dd 'f'                  ; 0
-		dd 'g'                  ; 0
-		dd 'h'                  ; 0
-		dd 'i'                  ; 0
-		dd 'n'                  ; 0
+ dword_51AD68    dd 'A'                  ; 0 ; DATA XREF: sub_424BC8+A1o
+                 dd 'B'                  ; 0
+                 dd 'C'                  ; 0
+                 dd 'D'                  ; 0
+                 dd 'E'                  ; 0
+                 dd 'F'                  ; 0
+                 dd 'G'                  ; 0
+                 dd 'H'                  ; 0
+                 dd 'I'                  ; 0
+                 dd 'J'                  ; 0
+                 dd 'K'                  ; 0
+                 dd 'L'                  ; 0
+                 dd 'M'                  ; 0
+                 dd 'N'                  ; 0
+                 dd 'O'                  ; 0
+                 dd 'P'                  ; 0
+                 dd 'Q'                  ; 0
+                 dd 'R'                  ; 0
+                 dd 'S'                  ; 0
+                 dd 'T'                  ; 0
+                 dd 'U'                  ; 0
+                 dd 'V'                  ; 0
+                 dd 'W'                  ; 0
+                 dd 'X'                  ; 0
+                 dd 'Y'                  ; 0
+                 dd 'Z'                  ; 0
+                 dd 20h                  ; 0
+                 dd 10030h               ; 0
+                 dd 10031h               ; 0
+                 dd 10032h               ; 0
+                 dd 10033h               ; 0
+                 dd 10034h               ; 0
+                 dd 10035h               ; 0
+                 dd 10036h               ; 0
+                 dd 10037h               ; 0
+                 dd 10038h               ; 0
+                 dd 10039h               ; 0
+                 dd 'p'                  ; 0
+                 dd 'q'                  ; 0
+                 dd 'r'                  ; 0
+                 dd 's'                  ; 0
+                 dd 't'                  ; 0
+                 dd 'u'                  ; 0
+                 dd 'v'                  ; 0
+                 dd 'w'                  ; 0
+                 dd 'x'                  ; 0
+                 dd 'y'                  ; 0
+                 dd 'z'                  ; 0
+                 dd '{'                  ; 0
+                 dd 10060h               ; 0
+                 dd 1007Eh               ; 0
+                 dd 10021h               ; 0
+                 dd 10040h               ; 0
+                 dd 10024h               ; 0
+                 dd 10025h               ; 0
+                 dd 1005Eh               ; 0
+                 dd 10026h               ; 0
+                 dd 1002Ah               ; 0
+                 dd 10028h               ; 0
+                 dd 10029h               ; 0
+                 dd 1002Dh               ; 0
+                 dd 1005Fh               ; 0
+                 dd 1003Dh               ; 0
+                 dd 1002Bh               ; 0
+                 dd 1005Bh               ; 0
+                 dd 1005Dh               ; 0
+                 dd 1007Bh               ; 0
+                 dd 1007Dh               ; 0
+                 dd 1005Ch               ; 0
+                 dd 1007Ch               ; 0
+                 dd 1003Bh               ; 0
+                 dd 1003Ah               ; 0
+                 dd 10027h               ; 0
+                 dd 10022h               ; 0
+                 dd 1002Ch               ; 0
+                 dd 1002Eh               ; 0
+                 dd 1003Ch               ; 0
+                 dd 1003Eh               ; 0
+                 dd 1002Fh               ; 0
+                 dd 1003Fh               ; 0
+                 dd 26h                  ; 0
+                 dd 28h                  ; 0
+                 dd 25h                  ; 0
+                 dd 27h                  ; 0
+                 dd 21h                  ; 0
+                 dd 22h                  ; 0
+                 dd 24h                  ; 0
+                 dd 23h                  ; 0
+                 dd 0Dh                  ; 0
+                 dd 8                    ; 0
+                 dd 2Eh                  ; 0
+                 dd 2Dh                  ; 0
+                 dd 9                    ; 0
+                 dd 6Ah                  ; 0
+                 dd 6Bh                  ; 0
+                 dd 6Dh                  ; 0
+                 dd 6Fh                  ; 0
+                 dd 60h                  ; 0
+                 dd 61h                  ; 0
+                 dd 62h                  ; 0
+                 dd 63h                  ; 0
+                 dd 64h                  ; 0
+                 dd 65h                  ; 0
+                 dd 66h                  ; 0
+                 dd 67h                  ; 0
+                 dd 68h                  ; 0
+                 dd 69h                  ; 0
+                 dd 6Eh                  ; 0
 aMainMenuFile:				; DATA XREF: .data:stru_519468o
 		unicode	0, <Main menu: File>,0
 aOpenNewExecuta:			; DATA XREF: .data:00519478o

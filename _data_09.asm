@@ -382,82 +382,91 @@ stru_579E64	_excHdr	<0, -36>	; DATA XREF: .text:004E747Eo
 		_excData <50000h, 0, offset stru_579E54>
 dword_579E78	dd 3			; DATA XREF: .text:loc_4E7B75r
 stru_579E7C	_excHdr	<0, -36>	; DATA XREF: .text:004E7CFBo
-aNotype		db '<notype>',0         ; DATA XREF: .text:004E805Bo
-; char aIdTpname[]
-aIdTpname	db 'id->tpName',0       ; DATA XREF: .text:004E8071o
-; char aXxtype_cpp_9[]
-aXxtype_cpp_9	db 'xxtype.cpp',0       ; DATA XREF: .text:004E806Co
-; char aTp1[]
-aTp1		db 'tp1',0              ; DATA XREF: .text:004E80A2o
-; char aXxtype_cpp_10[]
-aXxtype_cpp_10	db 'xxtype.cpp',0       ; DATA XREF: .text:004E809Do
-; char aTp2[]
-aTp2		db 'tp2',0              ; DATA XREF: .text:004E80BDo
-; char aXxtype_cpp_11[]
-aXxtype_cpp_11	db 'xxtype.cpp',0       ; DATA XREF: .text:004E80B8o
-; char aTp1Tpname[]
-aTp1Tpname	db 'tp1->tpName',0      ; DATA XREF: .text:004E8114o
-; char aXxtype_cpp_12[]
-aXxtype_cpp_12	db 'xxtype.cpp',0       ; DATA XREF: .text:004E810Fo
-; char aTp2Tpname[]
-aTp2Tpname	db 'tp2->tpName',0      ; DATA XREF: .text:004E8138o
-; char aXxtype_cpp_13[]
-aXxtype_cpp_13	db 'xxtype.cpp',0       ; DATA XREF: .text:004E8133o
-; char cond[]
-cond		db 'IS_STRUC\{base->tpMask\}',0 ; DATA XREF: .text:004E7BB8o
-; char file[]
-file		db 'xxtype.cpp',0       ; DATA XREF: .text:004E7BB3o
-; char aIs_strucDervTp[]
-aIs_strucDervTp	db 'IS_STRUC\{derv->tpMask\}',0 ; DATA XREF: .text:loc_4E7BD8o
-; char aXxtype_cpp_0[]
-aXxtype_cpp_0	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7BD3o
-; char aDervTpclass_tp[]
-aDervTpclass_tp	db 'derv->tpClass.tpcFlags \A CF_HAS_BASES',0 ; DATA XREF: .text:004E7BF8o
-; char aXxtype_cpp_1[]
-aXxtype_cpp_1	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7BF3o
-; char aUnsigned__farV[]
-aUnsigned__farV	db '\{\{unsigned __far *\}vtablePtr\}[-1] == 0',0 ; DATA XREF: .text:004E835Eo
-; char aXxtype_cpp_14[]
-aXxtype_cpp_14	db 'xxtype.cpp',0       ; DATA XREF: .text:004E8359o
-aNotype_0	db '<notype>',0         ; DATA XREF: .text:004E843Ao
-; char aToptypptr0Is_s[]
-aToptypptr0Is_s	db 'topTypPtr != 0 \A\A IS_STRUC\{topTypPtr->tpMask\}',0
-; char aXxtype_cpp_2[]
-aXxtype_cpp_2	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7D72o
-; char aTgttypptr0Is_s[]
-aTgttypptr0Is_s	db 'tgtTypPtr != 0 \A\A IS_STRUC\{tgtTypPtr->tpMask\}',0
-; char aXxtype_cpp_3[]
-aXxtype_cpp_3	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7D98o
-; char aSrctypptr0Is_s[]
-aSrctypptr0Is_s	db 'srcTypPtr == 0 || IS_STRUC\{srcTypPtr->tpMask\}',0
-; char aXxtype_cpp_4[]
-aXxtype_cpp_4	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7DBEo
-; char a__issametypeid[]
-a__issametypeid	db '__isSameTypeID\{srcTypPtr, tgtTypPtr\} == 0',0
-; char aXxtype_cpp_5[]
-aXxtype_cpp_5	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7DEDo
-; char aTgttypptr0[]
-aTgttypptr0__is	db 'tgtTypPtr != 0 \A\A __isSameTypeID\{topTypPtr, tgtTypPtr\} == 0',0
-; char aXxtype_cpp_6[]
-aXxtype_cpp_6	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7E35o
-; char aSrctypptr[]
-aSrctypptr	db 'srcTypPtr',0        ; DATA XREF: .text:004E7F25o
-; char aXxtype_cpp_7[]
-aXxtype_cpp_7	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7F20o
-aUnsigned__fa_1	db '\{\{unsigned __far *\}vtablePtr\}[-1] == 0',0
-aXxtype_cpp	db 'xxtype.cpp',0
-; char aAddr[]
-aAddr		db 'addr',0             ; DATA XREF: .text:004E7FC9o
-; char aXxtype_cpp_8[]
-aXxtype_cpp_8	db 'xxtype.cpp',0       ; DATA XREF: .text:004E7FC4o
-aCanTAdjustClas	db 'Can',27h,'t adjust class address \{no base class entry found\}',0
-; char aCanTAdjustCl_0[]
-aCanTAdjustCl_0	db '!\=Can',27h,'t adjust class address \{no base class entry found\}\=',0
-; char aXxtype_cpp_15[]
-aXxtype_cpp_15	db 'xxtype.cpp',0       ; DATA XREF: .text:004E84E2o
-		db 0
-		db    0
-		db    0
+ aNotype         db '<notype>',0         ; DATA XREF: .text:004E805Bo
+ ; char aIdTpname[]
+ aIdTpname       db 'id->tpName',0       ; DATA XREF: .text:004E8071o
+ ; char aXxtype_cpp_9[]
+ aXxtype_cpp_9   db 'xxtype.cpp',0       ; DATA XREF: .text:004E806Co
+ ; char aTp1[]
+ aTp1            db 'tp1',0              ; DATA XREF: .text:004E80A2o
+ ; char aXxtype_cpp_10[]
+ aXxtype_cpp_10  db 'xxtype.cpp',0       ; DATA XREF: .text:004E809Do
+ ; char aTp2[]
+ aTp2            db 'tp2',0              ; DATA XREF: .text:004E80BDo
+ ; char aXxtype_cpp_11[]
+ aXxtype_cpp_11  db 'xxtype.cpp',0       ; DATA XREF: .text:004E80B8o
+ ; char aTp1Tpname[]
+ aTp1Tpname      db 'tp1->tpName',0      ; DATA XREF: .text:004E8114o
+ ; char aXxtype_cpp_12[]
+ aXxtype_cpp_12  db 'xxtype.cpp',0       ; DATA XREF: .text:004E810Fo
+ ; char aTp2Tpname[]
+ aTp2Tpname      db 'tp2->tpName',0      ; DATA XREF: .text:004E8138o
+ ; char aXxtype_cpp_13[]
+ aXxtype_cpp_13  db 'xxtype.cpp',0       ; DATA XREF: .text:004E8133o
+ ; char cond[]
+ cond            db 'IS_STRUC(base->tpMask)',0 ; DATA XREF: .text:004E7BB8o
+ ; char file[]
+ file            db 'xxtype.cpp',0       ; DATA XREF: .text:004E7BB3o
+ ; char aIs_strucDervTp[]
+ aIs_strucDervTp db 'IS_STRUC(derv->tpMask)',0 ; DATA XREF: .text:loc_4E7BD8o
+ ; char aXxtype_cpp_0[]
+ aXxtype_cpp_0   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7BD3o
+ ; char aDervTpclass_tp[]
+ aDervTpclass_tp db 'derv->tpClass.tpcFlags & CF_HAS_BASES',0
+                                         ; DATA XREF: .text:004E7BF8o
+ ; char aXxtype_cpp_1[]
+ aXxtype_cpp_1   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7BF3o
+ ; char aUnsigned__farV[]
+ aUnsigned__farV db '((unsigned __far *)vtablePtr)[-1] == 0',0
+                                         ; DATA XREF: .text:004E835Eo
+ ; char aXxtype_cpp_14[]
+ aXxtype_cpp_14  db 'xxtype.cpp',0       ; DATA XREF: .text:004E8359o
+ aNotype_0       db '<notype>',0         ; DATA XREF: .text:004E843Ao
+ ; char aToptypptr0Is_s[]
+ aToptypptr0Is_s db 'topTypPtr != 0 && IS_STRUC(topTypPtr->tpMask)',0
+                                         ; DATA XREF: .text:004E7D77o
+ ; char aXxtype_cpp_2[]
+ aXxtype_cpp_2   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7D72o
+ ; char aTgttypptr0Is_s[]
+ aTgttypptr0Is_s db 'tgtTypPtr != 0 && IS_STRUC(tgtTypPtr->tpMask)',0
+                                         ; DATA XREF: .text:004E7D9Do
+ ; char aXxtype_cpp_3[]
+ aXxtype_cpp_3   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7D98o
+ ; char aSrctypptr0Is_s[]
+ aSrctypptr0Is_s db 'srcTypPtr == 0 || IS_STRUC(srcTypPtr->tpMask)',0
+                                         ; DATA XREF: .text:004E7DC3o
+ ; char aXxtype_cpp_4[]
+ aXxtype_cpp_4   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7DBEo
+ ; char a__issametypeid[]
+ a__issametypeid db '__isSameTypeID(srcTypPtr, tgtTypPtr) == 0',0
+                                         ; DATA XREF: .text:004E7DF2o
+ ; char aXxtype_cpp_5[]
+ aXxtype_cpp_5   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7DEDo
+ ; char aTgttypptr0[]
+ aTgttypptr0__is db 'tgtTypPtr != 0 && __isSameTypeID(topTypPtr, tgtTypPtr) == 0',0
+                                         ; DATA XREF: .text:004E7E3Ao
+ ; char aXxtype_cpp_6[]
+ aXxtype_cpp_6   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7E35o
+ ; char aSrctypptr[]
+ aSrctypptr      db 'srcTypPtr',0        ; DATA XREF: .text:004E7F25o
+ ; char aXxtype_cpp_7[]
+ aXxtype_cpp_7   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7F20o
+ aUnsigned__fa_1 db '((unsigned __far *)vtablePtr)[-1] == 0',0
+ aXxtype_cpp     db 'xxtype.cpp',0
+ ; char aAddr[]
+ aAddr           db 'addr',0             ; DATA XREF: .text:004E7FC9o
+ ; char aXxtype_cpp_8[]
+ aXxtype_cpp_8   db 'xxtype.cpp',0       ; DATA XREF: .text:004E7FC4o
+ aCanTAdjustClas db 'Can',27h,'t adjust class address (no base class entry found)',0
+                                         ; DATA XREF: .text:loc_4E84D4o
+ ; char aCanTAdjustCl_0[]
+ aCanTAdjustCl_0 db '!"Can',27h,'t adjust class address (no base class entry found)"',0
+                                         ; DATA XREF: .text:004E84E7o
+ ; char aXxtype_cpp_15[]
+ aXxtype_cpp_15  db 'xxtype.cpp',0       ; DATA XREF: .text:004E84E2o
+                 db 0
+                 db    0
+                 db    0
 		dd offset @$xt$14type_info_hash	; `__tpdsc__'[type_info_hash]
 		dd 0
 		dd 0
@@ -790,7 +799,7 @@ aStrm_locks	db 'strm_locks',0       ; DATA XREF: .text:004EB2B6o
 ; char aStreams_c[]
 aStreams_c	db 'streams.c',0        ; DATA XREF: .text:004EB2B1o
 		db 0
-aNull_0		db '\{null\}',0           ; DATA XREF: .text:004EB96Bo
+aNull_0		db '(null)',0           ; DATA XREF: .text:004EB96Bo
 		db 0
 aNull:					; DATA XREF: .text:004EB94Ao
 		unicode	0, <\{null\}>,0
@@ -807,7 +816,7 @@ byte_57AF96	db 0,16h,16h,1,16h,17h,16h,16h;	0 ; DATA XREF: .text:004EB49Er
 		db 0Eh,16h,16h,11h,16h,0Ch,16h,16h; 80
 		db 0Dh,16h,16h,16h,16h,16h,16h,16h; 88
 		db 90h,90h		; 96
-aNull_1		db '\{null\}',0           ; DATA XREF: .text:004EC392o
+aNull_1		db '(null)',0           ; DATA XREF: .text:004EC392o
 		db 0
 aNull_2:				; DATA XREF: .text:004EC3B5o
 		unicode	0, <\{null\}>,0
@@ -824,64 +833,23 @@ byte_57B00E	db 0,16h,16h,1,16h,17h,16h,16h;	0 ; DATA XREF: .text:004EBEC4r
 		db 0Eh,16h,16h,11h,16h,0Ch,16h,16h; 80
 		db 0Dh,16h,16h,16h,16h,16h,16h,16h; 88
 		db 90h,90h,0,0		; 96
-word_57B072	dw 20h			; DATA XREF: .text:004ECF55r
-		unicode	0, <	    \{\{\{\{\{     H>
-		db 10h,0,10h,0,10h,0,10h,0; 0
-		db 10h,0,10h,0,10h,0,10h,0; 8
-		db 10h,0,10h,0,10h,0,10h,0; 16
-		db 10h,0,10h,0,10h,0,84h,0; 24
-		db 84h,0,84h,0,84h,0,84h,0; 32
-		db 84h,0,84h,0,84h,0,84h,0; 40
-		db 84h,0,10h,0,10h,0,10h,0; 48
-		db 10h,0,10h,0,10h,0,10h,0; 56
-		db 81h,1,81h,1,81h,1,81h,1; 64
-		db 81h,1,81h,1,1,1,1,1	; 72
-		db 1,1,1,1,1,1,1,1	; 80
-		db 1,1,1,1,1,1,1,1	; 88
-		db 1,1,1,1,1,1,1,1	; 96
-		db 1,1,1,1,1,1,1,1	; 104
-		db 1,1,1,1,10h,0,10h,0	; 112
-		db 10h,0,10h,0,10h,0,10h,0; 120
-		db 82h,1,82h,1,82h,1,82h,1; 128
-		db 82h,1,82h,1,2,1,2,1	; 136
-		db 2,1,2,1,2,1,2,1	; 144
-		db 2,1,2,1,2,1,2,1	; 152
-		db 2,1,2,1,2,1,2,1	; 160
-		db 2,1,2,1,2,1,2,1	; 168
-		db 2,1,2,1,10h,0,10h,0	; 176
-		db 10h,0,10h,0,20h,0,0,0; 184
-		db 0,0,0,0,0,0,0,0	; 192
-		db 0,0,0,0,0,0,0,0	; 200
-		db 0,0,0,0,0,0,0,0	; 208
-		db 0,0,0,0,0,0,0,0	; 216
-		db 0,0,0,0,0,0,0,0	; 224
-		db 0,0,0,0,0,0,0,0	; 232
-		db 0,0,0,0,0,0,0,0	; 240
-		db 0,0,0,0,0,0,0,0	; 248
-		db 0,0,0,0,0,0,0,0	; 256
-		db 0,0,0,0,0,0,0,0	; 264
-		db 0,0,0,0,0,0,0,0	; 272
-		db 0,0,0,0,0,0,0,0	; 280
-		db 0,0,0,0,0,0,0,0	; 288
-		db 0,0,0,0,0,0,0,0	; 296
-		db 0,0,0,0,0,0,0,0	; 304
-		db 0,0,0,0,0,0,0,0	; 312
-		db 0,0,0,0,0,0,0,0	; 320
-		db 0,0,0,0,0,0,0,0	; 328
-		db 0,0,0,0,0,0,0,0	; 336
-		db 0,0,0,0,0,0,0,0	; 344
-		db 0,0,0,0,0,0,0,0	; 352
-		db 0,0,0,0,0,0,0,0	; 360
-		db 0,0,0,0,0,0,0,0	; 368
-		db 0,0,0,0,0,0,0,0	; 376
-		db 0,0,0,0,0,0,0,0	; 384
-		db 0,0,0,0,0,0,0,0	; 392
-		db 0,0,0,0,0,0,0,0	; 400
-		db 0,0,0,0,0,0,0,0	; 408
-		db 0,0,0,0,0,0,0,0	; 416
-		db 0,0,0,0,0,0,0,0	; 424
-		db 0,0,0,0,0,0,0,0	; 432
-		db 0,0,0,0,0,0,90h,90h	; 440
+ word_57B072 label word
+		dw 20h,20h,20h,20h,20h,20h,20h,20h,20h,28h,28h,28h,28h; 0
+		dw 28h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h,20h; 13
+		dw 20h,20h,20h,20h,20h,20h,48h,10h,10h,10h,10h,10h,10h; 26
+		dw 10h,10h,10h,10h,10h,10h,10h,10h,10h,84h,84h,84h,84h; 39
+		dw 84h,84h,84h,84h,84h,84h,10h,10h,10h,10h,10h,10h,10h; 52
+		dw 181h,181h,181h,181h,181h,181h,101h,101h,101h,101h,101h; 65
+		dw 101h,101h,101h,101h,101h,101h,101h,101h,101h,101h,101h; 76
+		dw 101h,101h,101h,101h,10h,10h,10h,10h,10h,10h,182h,182h; 87
+		dw 182h,182h,182h,182h,102h,102h,102h,102h,102h,102h,102h; 99
+		dw 102h,102h,102h,102h,102h,102h,102h,102h,102h,102h,102h; 110
+		dw 102h,102h,10h,10h,10h,10h,20h,0,0,0,0,0,0,0,0,0,0,0; 121
+		dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0; 139
+		dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0; 165
+		dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0; 191
+		dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0; 217
+                 dw 0,0,0,0,0,0,0,0,0,0,0,0,0; 243
 byte_57B274	db 0,1,2,3,4,5,6,7	; 0 ; DATA XREF: .text:004ED043r
 		db 8,9,0Ah,0Bh,0Ch,0Dh,0Eh,0Fh;	8
 		db 10h,11h,12h,13h,14h,15h,16h,17h; 16
@@ -1034,7 +1002,7 @@ unk_57B5B9	db    0			; DATA XREF: .data:0057B498o
 unk_57B5BA	db    0			; DATA XREF: .data:0057B49Co
 unk_57B5BB	db  2Dh	; -		; DATA XREF: .data:0057B4A0o
 		db    0
-aV_70		db '\{$v\}',0             ; DATA XREF: .data:0057B4A4o
+aV_70		db '($v)',0             ; DATA XREF: .data:0057B4A4o
 unk_57B5C2	db    0			; DATA XREF: .data:off_57B4A8o
 a__51		db '.',0                ; DATA XREF: .data:0057B4ACo
 unk_57B5C5	db    0			; DATA XREF: .data:0057B4B0o
@@ -1705,274 +1673,303 @@ stru_57C750	_excInfo <offset @$xt$p18Sysutils@Exception, 405h, -4>
 stru_57C760	_excHdr	<0, -40>	; DATA XREF: .text:004F5161o
 					; end of descriptors
 		_excData <50000h, 0, offset stru_57C750>
-; CHAR a___cppdebugh_0[]
-a___cppdebugh_0	db '___CPPdebugHook',0  ; DATA XREF: .text:loc_4F1450o
-aEdivbyzero	db 'EDivByZero',0       ; DATA XREF: .text:004F15A6o
-aErangeerror	db 'ERangeError',0      ; DATA XREF: .text:004F15E2o
-aEintoverflow	db 'EIntOverflow',0     ; DATA XREF: .text:004F161Eo
-aEinvalidop	db 'EInvalidOp',0       ; DATA XREF: .text:004F165Ao
-aEzerodivide	db 'EZeroDivide',0      ; DATA XREF: .text:004F1696o
-aEoverflow	db 'EOverflow',0        ; DATA XREF: .text:004F16D2o
-aEunderflow	db 'EUnderflow',0       ; DATA XREF: .text:004F170Eo
-aEaccessviolati	db 'EAccessViolation',0 ; DATA XREF: .text:004F174Ao
-aEprivilege	db 'EPrivilege',0       ; DATA XREF: .text:004F1786o
-aEcontrolc	db 'EControlC',0        ; DATA XREF: .text:004F17C2o
-aEstackoverflow	db 'EStackOverflow',0   ; DATA XREF: .text:004F17FBo
-aBadExceptionNu	db 'Bad exception number',0 ; DATA XREF: .text:loc_4F182Eo
-; char aBadException_0[]
-aBadException_0	db '!\=Bad exception number\=',0 ; DATA XREF: .text:004F1841o
-; char aXx_cpp[]
-aXx_cpp		db 'xx.cpp',0           ; DATA XREF: .text:004F183Co
-; char aMaskTm_is_ref[]
-aMaskTm_is_ref	db 'mask \A TM_IS_REF',0 ; DATA XREF: .text:004F1863o
-; char aXx_cpp_0[]
-aXx_cpp_0	db 'xx.cpp',0           ; DATA XREF: .text:004F185Eo
-; char aSrcmaskTm_is_r[]
-aSrcmaskTm_is_r	db 'srcmask \A TM_IS_REF',0 ; DATA XREF: .text:004F19D4o
-; char aXx_cpp_1[]
-aXx_cpp_1	db 'xx.cpp',0           ; DATA XREF: .text:004F19CFo
-; char aCtormask0x0100[]
-aCtormask0x0100	db '\{ctorMask \A 0x0100\} != 0 || \{ctorMask \A 0x0020\} == 0',0
-; char aXx_cpp_2[]
-aXx_cpp_2	db 'xx.cpp',0           ; DATA XREF: .text:004F1AB1o
-; char aCtormask0x0080[]
-aCtormask0x0080	db '\{ctorMask \A 0x0080\} == 0',0 ; DATA XREF: .text:004F1AD2o
-; char aXx_cpp_3[]
-aXx_cpp_3	db 'xx.cpp',0           ; DATA XREF: .text:004F1ACDo
-aWhat__		db 'what!?',0            ; DATA XREF: .text:loc_4F1B26o
-; char aWhat__0[]
-aWhat___0	db '!\=what!?\=',0         ; DATA XREF: .text:004F1B39o
-; char aXx_cpp_4[]
-aXx_cpp_4	db 'xx.cpp',0           ; DATA XREF: .text:004F1B34o
-aWhat___1	db 'what!?',0            ; DATA XREF: .text:loc_4F1B7Co
-; char aWhat__2[]
-aWhat___2	db '!\=what!?\=',0         ; DATA XREF: .text:004F1B8Fo
-; char aXx_cpp_5[]
-aXx_cpp_5	db 'xx.cpp',0           ; DATA XREF: .text:004F1B8Ao
-; char aDtormask0x0080[]
-aDtormask0x0080	db '\{dtorMask \A 0x0080\} == 0',0 ; DATA XREF: .text:004F1C38o
-; char aXx_cpp_6[]
-aXx_cpp_6	db 'xx.cpp',0           ; DATA XREF: .text:004F1C33o
-aWhat___3	db 'what!?',0            ; DATA XREF: .text:loc_4F1C80o
-; char aWhat__4[]
-aWhat___4	db '!\=what!?\=',0         ; DATA XREF: .text:004F1C93o
-; char aXx_cpp_7[]
-aXx_cpp_7	db 'xx.cpp',0           ; DATA XREF: .text:004F1C8Eo
-; char aMfnmask0x00800[]
-aMfnmask0x00800	db '\{mfnMask \A 0x0080\} == 0',0 ; DATA XREF: .text:004F1CBBo
-; char aXx_cpp_8[]
-aXx_cpp_8	db 'xx.cpp',0           ; DATA XREF: .text:004F1CB6o
-aWhat___5	db 'what!?',0            ; DATA XREF: .text:loc_4F1D00o
-; char aWhat__6[]
-aWhat___6	db '!\=what!?\=',0         ; DATA XREF: .text:004F1D13o
-; char aXx_cpp_9[]
-aXx_cpp_9	db 'xx.cpp',0           ; DATA XREF: .text:004F1D0Eo
-; char aTypeidRethrowF[]
-aTypeidRethrowF	db 'typeID || \{reThrow \A\A \{flags \A XDF_ISDELPHIEXCEPTION\}\}',0
-; char aXx_cpp_10[]
-aXx_cpp_10	db 'xx.cpp',0           ; DATA XREF: .text:004F1D8Fo
-; char aCctraddr[]
-aCctraddr	db 'cctrAddr',0         ; DATA XREF: .text:004F1F64o
-; char aXx_cpp_11[]
-aXx_cpp_11	db 'xx.cpp',0           ; DATA XREF: .text:004F1F5Fo
-aXdpXdargbuff	db 'xdp->xdArgBuff',0   ; DATA XREF: .text:004F2070o
-aXx_cpp_12	db 'xx.cpp',0           ; DATA XREF: .text:004F206Bo
-; char aDtoraddr[]
-aDtoraddr	db 'dtorAddr',0         ; DATA XREF: .text:004F2129o
-; char aXx_cpp_13[]
-aXx_cpp_13	db 'xx.cpp',0           ; DATA XREF: .text:004F2124o
-; char aArgtype[]
-aArgtype	db 'argType',0          ; DATA XREF: .text:004F21E0o
-; char aXx_cpp_14[]
-aXx_cpp_14	db 'xx.cpp',0           ; DATA XREF: .text:004F21DBo
-; char a__cppexception[]
-a__cppexception	db '__CPPexceptionList',0 ; DATA XREF: .text:004F223Fo
-; char aXx_cpp_15[]
-aXx_cpp_15	db 'xx.cpp',0           ; DATA XREF: .text:004F223Ao
-; char aXl[]
-aXl		db 'xl',0               ; DATA XREF: .text:004F227Eo
-; char aXx_cpp_16[]
-aXx_cpp_16	db 'xx.cpp',0           ; DATA XREF: .text:004F2279o
-; char aXdrptrXderradd[]
-aXdrptrXderradd	db 'xdrPtr->xdERRaddr == xl',0 ; DATA XREF: .text:004F229Ao
-; char aXx_cpp_17[]
-aXx_cpp_17	db 'xx.cpp',0           ; DATA XREF: .text:004F2295o
-; char aTpidTpidTpmask[]
-aTpidTpidTpmask	db '!tpid || tpid->tpMask \A \{TM_IS_PTR | TM_IS_REF\}',0
-; char aXx_cpp_18[]
-aXx_cpp_18	db 'xx.cpp',0           ; DATA XREF: .text:004F2363o
-; char aDscptrXderradd[]
-aDscptrXderradd	db 'dscPtr->xdERRaddr == errPtr',0 ; DATA XREF: .text:004F2488o
-; char aXx_cpp_19[]
-aXx_cpp_19	db 'xx.cpp',0           ; DATA XREF: .text:004F2483o
-; char aDscptrXdhtabad[]
-aDscptrXdhtabad	db 'dscPtr->xdHtabAdr == hdtPtr',0 ; DATA XREF: .text:004F24A7o
-; char aXx_cpp_20[]
-aXx_cpp_20	db 'xx.cpp',0           ; DATA XREF: .text:004F24A2o
-; char aDscptrXdargcop[]
-aDscptrXdargcop	db 'dscPtr->xdArgCopy == 0',0 ; DATA XREF: .text:004F24C4o
-; char aXx_cpp_21[]
-aXx_cpp_21	db 'xx.cpp',0           ; DATA XREF: .text:004F24BFo
-; char aDscptrXdmaskTm[]
-aDscptrXdmaskTm	db '\{dscPtr->xdMask \A TM_IS_PTR\} == 0',0 ; DATA XREF: .text:004F2572o
-; char aXx_cpp_22[]
-aXx_cpp_22	db 'xx.cpp',0           ; DATA XREF: .text:004F256Do
-; char aMaskTm_is_ptr[]
-aMaskTm_is_ptr	db 'mask \A TM_IS_PTR',0 ; DATA XREF: .text:004F25A4o
-; char aXx_cpp_23[]
-aXx_cpp_23	db 'xx.cpp',0           ; DATA XREF: .text:004F259Fo
-; char aDscptrXdmask_0[]
-aDscptrXdmask_0	db 'dscPtr->xdMask \A TM_IS_PTR',0 ; DATA XREF: .text:004F25C1o
-; char aXx_cpp_24[]
-aXx_cpp_24	db 'xx.cpp',0           ; DATA XREF: .text:004F25BCo
-; char aDscptrXdtypeid[]
-aDscptrXdtypeid	db 'dscPtr->xdTypeID == dscPtr->xdBase',0 ; DATA XREF: .text:004F263Eo
-; char aXx_cpp_25[]
-aXx_cpp_25	db 'xx.cpp',0           ; DATA XREF: .text:004F2639o
-; char aHdtptrHdcctrad[]
-aHdtptrHdcctrad	db 'hdtPtr->HDcctrAddr',0 ; DATA XREF: .text:004F268Do
-; char aXx_cpp_26[]
-aXx_cpp_26	db 'xx.cpp',0           ; DATA XREF: .text:004F2688o
-; char aDscptrXdsizeSi[]
-aDscptrXdsizeSi	db 'dscPtr->xdSize == size',0 ; DATA XREF: .text:004F26FAo
-; char aXx_cpp_27[]
-aXx_cpp_27	db 'xx.cpp',0           ; DATA XREF: .text:004F26F5o
-; char aXdrptrXdrptrXd[]
-aXdrptrXdrptrXd	db 'xdrPtr \A\A xdrPtr == *xdrLPP',0 ; DATA XREF: .text:004F282Do
-; char aXx_cpp_28[]
-aXx_cpp_28	db 'xx.cpp',0           ; DATA XREF: .text:004F2828o
-aBogusContextIn	db 'bogus context in Local_unwind\{\}',0 ; DATA XREF: .text:loc_4F2876o
-; char aBogusContext_0[]
-aBogusContext_0	db '!\=bogus context in Local_unwind\{\}\=',0 ; DATA XREF: .text:004F2889o
-; char aXx_cpp_29[]
-aXx_cpp_29	db 'xx.cpp',0           ; DATA XREF: .text:004F2884o
-; char s2[]
-s2		db 'const ',0           ; DATA XREF: .text:004F2917o
-; char aVolatile[]
-aVolatile	db 'volatile ',0        ; DATA XREF: .text:004F2930o
-aBogusContext_1	db 'bogus context in _ExceptionHandler\{\}',0 ; DATA XREF: .text:loc_4F2E9Do
-; char aBogusContext_2[]
-aBogusContext_2	db '!\=bogus context in _ExceptionHandler\{\}\=',0 ; DATA XREF: .text:004F2EB0o
-; char aXx_cpp_30[]
-aXx_cpp_30	db 'xx.cpp',0           ; DATA XREF: .text:004F2EABo
-; char aVartypeTpclass[]
-aVartypeTpclass	db 'varType->tpClass.tpcFlags \A CF_HAS_DTOR',0 ; DATA XREF: .text:004F2F09o
-; char aXx_cpp_31[]
-aXx_cpp_31	db 'xx.cpp',0           ; DATA XREF: .text:004F2F04o
-; char aVartypeTpcla_0[]
-aVartypeTpcla_0	db 'varType->tpClass.tpcDtorAddr',0 ; DATA XREF: .text:004F2F26o
-; char aXx_cpp_32[]
-aXx_cpp_32	db 'xx.cpp',0           ; DATA XREF: .text:004F2F21o
-; char aErrptrErrcinit[]
-aErrptrErrcinit	db '\{errPtr->ERRcInitDtc >= varType->tpClass.tpcDtorCount\} || flags',0
-; char aXx_cpp_33[]
-aXx_cpp_33	db 'xx.cpp',0           ; DATA XREF: .text:004F2F53o
-; char aVartypeTpcla_1[]
-aVartypeTpcla_1	db 'varType->tpClass.tpcFlags \A CF_HAS_DTOR',0 ; DATA XREF: .text:004F303Eo
-; char aXx_cpp_34[]
-aXx_cpp_34	db 'xx.cpp',0           ; DATA XREF: .text:004F3039o
-; char aBl[]
-aBl		db 'bl',0               ; DATA XREF: .text:004F309Bo
-; char aXx_cpp_35[]
-aXx_cpp_35	db 'xx.cpp',0           ; DATA XREF: .text:004F3096o
-; char aBlBloffs0[]
-aBlBloffs0	db 'bl->blOffs == 0',0  ; DATA XREF: .text:004F30C4o
-; char aXx_cpp_36[]
-aXx_cpp_36	db 'xx.cpp',0           ; DATA XREF: .text:004F30BFo
-; char aDtorcntVarcoun[]
-aDtorcntVarcoun	db 'dtorCnt < varCount',0 ; DATA XREF: .text:004F3114o
-; char aXx_cpp_37[]
-aXx_cpp_37	db 'xx.cpp',0           ; DATA XREF: .text:004F310Fo
-; char aIs_strucBltype[]
-aIs_strucBltype	db 'IS_STRUC\{blType->tpMask\}',0 ; DATA XREF: .text:004F3152o
-; char aXx_cpp_38[]
-aXx_cpp_38	db 'xx.cpp',0           ; DATA XREF: .text:004F314Do
-; char aIs_strucBlty_0[]
-aIs_strucBlty_0	db 'IS_STRUC\{blType->tpMask\}',0 ; DATA XREF: .text:004F31C7o
-; char aXx_cpp_39[]
-aXx_cpp_39	db 'xx.cpp',0           ; DATA XREF: .text:004F31C2o
-; char aMemtype[]
-aMemtype	db 'memType',0          ; DATA XREF: .text:004F3257o
-; char aXx_cpp_40[]
-aXx_cpp_40	db 'xx.cpp',0           ; DATA XREF: .text:004F3252o
-; char aMemtypeTpclass[]
-aMemtypeTpclass	db 'memType->tpClass.tpcFlags \A CF_HAS_DTOR',0 ; DATA XREF: .text:004F328Ao
-; char aXx_cpp_41[]
-aXx_cpp_41	db 'xx.cpp',0           ; DATA XREF: .text:004F3285o
-; char aVartypeTpmaskT[]
-aVartypeTpmaskT	db 'varType->tpMask \A TM_IS_ARRAY',0 ; DATA XREF: .text:004F3371o
-; char aXx_cpp_42[]
-aXx_cpp_42	db 'xx.cpp',0           ; DATA XREF: .text:004F336Co
-; char aVartypeTparr_t[]
-aVartypeTparr_t	db 'varType->tpArr.tpaElemType->tpClass.tpcFlags \A CF_HAS_DTOR',0
-; char aXx_cpp_43[]
-aXx_cpp_43	db 'xx.cpp',0           ; DATA XREF: .text:004F338Co
-; char aVdtcount[]
-aVdtcount	db 'vdtCount',0         ; DATA XREF: .text:004F33B8o
-; char aXx_cpp_44[]
-aXx_cpp_44	db 'xx.cpp',0           ; DATA XREF: .text:004F33B3o
-; char aEtdcountElemco[]
-aEtdcountElemco	db 'etdCount <= elemCount || elemCount == 0',0 ; DATA XREF: .text:004F33F5o
-; char aXx_cpp_45[]
-aXx_cpp_45	db 'xx.cpp',0           ; DATA XREF: .text:004F33F0o
-; char aDtrcountVdtcou[]
-aDtrcountVdtcou	db 'dtrCount <= vdtCount',0 ; DATA XREF: .text:004F3419o
-; char aXx_cpp_46[]
-aXx_cpp_46	db 'xx.cpp',0           ; DATA XREF: .text:004F3414o
-; char aIs_classVartyp[]
-aIs_classVartyp	db 'IS_CLASS\{varType->tpMask\}',0 ; DATA XREF: .text:004F3494o
-; char aXx_cpp_47[]
-aXx_cpp_47	db 'xx.cpp',0           ; DATA XREF: .text:004F348Fo
-; char aUnsigned__fa_0[]
-aUnsigned__fa_0	db '\{\{unsigned __far *\}vftAddr\}[-1] == 0',0 ; DATA XREF: .text:004F34E4o
-; char aXx_cpp_48[]
-aXx_cpp_48	db 'xx.cpp',0           ; DATA XREF: .text:004F34DFo
-; char aDttptrDttflags[]
-aDttptrDttflags	db 'dttPtr->dttFlags \A \{DTCVF_PTRVAL|DTCVF_RETVAL\}',0
-; char aXx_cpp_49[]
-aXx_cpp_49	db 'xx.cpp',0           ; DATA XREF: .text:004F353Eo
-; char aDttptrDtttypeT[]
-aDttptrDtttypeT	db 'dttPtr->dttType->tpMask \A TM_IS_PTR',0 ; DATA XREF: .text:004F3565o
-; char aXx_cpp_50[]
-aXx_cpp_50	db 'xx.cpp',0           ; DATA XREF: .text:004F3560o
-; char aDttptrDtttyp_0[]
-aDttptrDtttyp_0	db 'dttPtr->dttType->tpPtr.tppBaseType->tpClass.tpcFlags \A CF_HAS_DTO'
-		db 'R',0
-; char aXx_cpp_51[]
-aXx_cpp_51	db 'xx.cpp',0           ; DATA XREF: .text:004F3585o
-; char aIs_classDttptr[]
-aIs_classDttptr	db 'IS_CLASS\{dttPtr->dttType->tpMask\} \A\A \{dttPtr->dttType->tpClass.tp'
-		db 'cFlags \A CF_HAS_DTOR\}',0
-; char aXx_cpp_52[]
-aXx_cpp_52	db 'xx.cpp',0           ; DATA XREF: .text:004F35C9o
-; char aDtvtptrDtttype[]
-aDtvtptrDtttype	db 'dtvtPtr->dttType->tpMask \A TM_IS_ARRAY',0 ; DATA XREF: .text:004F363Fo
-; char aXx_cpp_53[]
-aXx_cpp_53	db 'xx.cpp',0           ; DATA XREF: .text:004F363Ao
-; char aVartypeTpcla_2[]
-aVartypeTpcla_2	db 'varType->tpClass.tpcFlags \A CF_HAS_DTOR',0 ; DATA XREF: .text:004F36A3o
-; char aXx_cpp_54[]
-aXx_cpp_54	db 'xx.cpp',0           ; DATA XREF: .text:004F369Eo
-; char aElemtypeTpclas[]
-aElemtypeTpclas	db 'elemType->tpClass.tpcFlags \A CF_HAS_DTOR',0 ; DATA XREF: .text:004F3717o
-; char aXx_cpp_55[]
-aXx_cpp_55	db 'xx.cpp',0           ; DATA XREF: .text:004F3712o
-; char aVartypeTpmas_0[]
-aVartypeTpmas_0	db 'varType->tpMask \A TM_IS_ARRAY',0 ; DATA XREF: .text:004F3774o
-; char aXx_cpp_56[]
-aXx_cpp_56	db 'xx.cpp',0           ; DATA XREF: .text:004F376Fo
-; char aVartypeTpmas_1[]
-aVartypeTpmas_1	db 'varType->tpMask \A TM_IS_PTR',0 ; DATA XREF: .text:004F37ABo
-; char aXx_cpp_57[]
-aXx_cpp_57	db 'xx.cpp',0           ; DATA XREF: .text:004F37A6o
-; char aBl_0[]
-aBl_0		db 'bl',0               ; DATA XREF: .text:004F384Fo
-; char aXx_cpp_58[]
-aXx_cpp_58	db 'xx.cpp',0           ; DATA XREF: .text:004F384Ao
-aBccxh1		db '**BCCxh1',0         ; DATA XREF: .text:004F39B6o
-		db 0
-		db    0
-		db    0
+ ; CHAR a___cppdebugh_0[]
+ a___cppdebugh_0 db '___CPPdebugHook',0  ; DATA XREF: .text:loc_4F1450o
+ aEdivbyzero     db 'EDivByZero',0       ; DATA XREF: .text:004F15A6o
+ aErangeerror    db 'ERangeError',0      ; DATA XREF: .text:004F15E2o
+ aEintoverflow   db 'EIntOverflow',0     ; DATA XREF: .text:004F161Eo
+ aEinvalidop     db 'EInvalidOp',0       ; DATA XREF: .text:004F165Ao
+ aEzerodivide    db 'EZeroDivide',0      ; DATA XREF: .text:004F1696o
+ aEoverflow      db 'EOverflow',0        ; DATA XREF: .text:004F16D2o
+ aEunderflow     db 'EUnderflow',0       ; DATA XREF: .text:004F170Eo
+ aEaccessviolati db 'EAccessViolation',0 ; DATA XREF: .text:004F174Ao
+ aEprivilege     db 'EPrivilege',0       ; DATA XREF: .text:004F1786o
+ aEcontrolc      db 'EControlC',0        ; DATA XREF: .text:004F17C2o
+ aEstackoverflow db 'EStackOverflow',0   ; DATA XREF: .text:004F17FBo
+ aBadExceptionNu db 'Bad exception number',0 ; DATA XREF: .text:loc_4F182Eo
+ ; char aBadException_0[]
+ aBadException_0 db '!"Bad exception number"',0 ; DATA XREF: .text:004F1841o
+ ; char aXx_cpp[]
+ aXx_cpp         db 'xx.cpp',0           ; DATA XREF: .text:004F183Co
+ ; char aMaskTm_is_ref[]
+ aMaskTm_is_ref  db 'mask & TM_IS_REF',0 ; DATA XREF: .text:004F1863o
+ ; char aXx_cpp_0[]
+ aXx_cpp_0       db 'xx.cpp',0           ; DATA XREF: .text:004F185Eo
+ ; char aSrcmaskTm_is_r[]
+ aSrcmaskTm_is_r db 'srcmask & TM_IS_REF',0 ; DATA XREF: .text:004F19D4o
+ ; char aXx_cpp_1[]
+ aXx_cpp_1       db 'xx.cpp',0           ; DATA XREF: .text:004F19CFo
+ ; char aCtormask0x0100[]
+ aCtormask0x0100 db '(ctorMask & 0x0100) != 0 || (ctorMask & 0x0020) == 0',0
+                                         ; DATA XREF: .text:004F1AB6o
+ ; char aXx_cpp_2[]
+ aXx_cpp_2       db 'xx.cpp',0           ; DATA XREF: .text:004F1AB1o
+ ; char aCtormask0x0080[]
+ aCtormask0x0080 db '(ctorMask & 0x0080) == 0',0 ; DATA XREF: .text:004F1AD2o
+ ; char aXx_cpp_3[]
+ aXx_cpp_3       db 'xx.cpp',0           ; DATA XREF: .text:004F1ACDo
+ aWhat?          db 'what?',0            ; DATA XREF: .text:loc_4F1B26o
+ ; char aWhat__0[]
+ aWhat?_0        db '!"what?"',0         ; DATA XREF: .text:004F1B39o
+ ; char aXx_cpp_4[]
+ aXx_cpp_4       db 'xx.cpp',0           ; DATA XREF: .text:004F1B34o
+ aWhat?_1        db 'what?',0            ; DATA XREF: .text:loc_4F1B7Co
+ ; char aWhat__2[]
+ aWhat?_2        db '!"what?"',0         ; DATA XREF: .text:004F1B8Fo
+ ; char aXx_cpp_5[]
+ aXx_cpp_5       db 'xx.cpp',0           ; DATA XREF: .text:004F1B8Ao
+ ; char aDtormask0x0080[]
+ aDtormask0x0080 db '(dtorMask & 0x0080) == 0',0 ; DATA XREF: .text:004F1C38o
+ ; char aXx_cpp_6[]
+ aXx_cpp_6       db 'xx.cpp',0           ; DATA XREF: .text:004F1C33o
+ aWhat?_3        db 'what?',0            ; DATA XREF: .text:loc_4F1C80o
+ ; char aWhat__4[]
+ aWhat?_4        db '!"what?"',0         ; DATA XREF: .text:004F1C93o
+ ; char aXx_cpp_7[]
+ aXx_cpp_7       db 'xx.cpp',0           ; DATA XREF: .text:004F1C8Eo
+ ; char aMfnmask0x00800[]
+ aMfnmask0x00800 db '(mfnMask & 0x0080) == 0',0 ; DATA XREF: .text:004F1CBBo
+ ; char aXx_cpp_8[]
+ aXx_cpp_8       db 'xx.cpp',0           ; DATA XREF: .text:004F1CB6o
+ aWhat?_5        db 'what?',0            ; DATA XREF: .text:loc_4F1D00o
+ ; char aWhat__6[]
+ aWhat?_6        db '!"what?"',0         ; DATA XREF: .text:004F1D13o
+ ; char aXx_cpp_9[]
+ aXx_cpp_9       db 'xx.cpp',0           ; DATA XREF: .text:004F1D0Eo
+ ; char aTypeidRethrowF[]
+ aTypeidRethrowF db 'typeID || (reThrow && (flags & XDF_ISDELPHIEXCEPTION))',0
+                                         ; DATA XREF: .text:004F1D94o
+ ; char aXx_cpp_10[]
+ aXx_cpp_10      db 'xx.cpp',0           ; DATA XREF: .text:004F1D8Fo
+ ; char aCctraddr[]
+ aCctraddr       db 'cctrAddr',0         ; DATA XREF: .text:004F1F64o
+ ; char aXx_cpp_11[]
+ aXx_cpp_11      db 'xx.cpp',0           ; DATA XREF: .text:004F1F5Fo
+ aXdpXdargbuff   db 'xdp->xdArgBuff',0   ; DATA XREF: .text:004F2070o
+ aXx_cpp_12      db 'xx.cpp',0           ; DATA XREF: .text:004F206Bo
+ ; char aDtoraddr[]
+ aDtoraddr       db 'dtorAddr',0         ; DATA XREF: .text:004F2129o
+ ; char aXx_cpp_13[]
+ aXx_cpp_13      db 'xx.cpp',0           ; DATA XREF: .text:004F2124o
+ ; char aArgtype[]
+ aArgtype        db 'argType',0          ; DATA XREF: .text:004F21E0o
+ ; char aXx_cpp_14[]
+ aXx_cpp_14      db 'xx.cpp',0           ; DATA XREF: .text:004F21DBo
+ ; char a__cppexception[]
+ a__cppexception db '__CPPexceptionList',0 ; DATA XREF: .text:004F223Fo
+ ; char aXx_cpp_15[]
+ aXx_cpp_15      db 'xx.cpp',0           ; DATA XREF: .text:004F223Ao
+ ; char aXl[]
+ aXl             db 'xl',0               ; DATA XREF: .text:004F227Eo
+ ; char aXx_cpp_16[]
+ aXx_cpp_16      db 'xx.cpp',0           ; DATA XREF: .text:004F2279o
+ ; char aXdrptrXderradd[]
+ aXdrptrXderradd db 'xdrPtr->xdERRaddr == xl',0 ; DATA XREF: .text:004F229Ao
+ ; char aXx_cpp_17[]
+ aXx_cpp_17      db 'xx.cpp',0           ; DATA XREF: .text:004F2295o
+ ; char aTpidTpidTpmask[]
+ aTpidTpidTpmask db '!tpid || tpid->tpMask & (TM_IS_PTR | TM_IS_REF)',0
+                                         ; DATA XREF: .text:004F2368o
+ ; char aXx_cpp_18[]
+ aXx_cpp_18      db 'xx.cpp',0           ; DATA XREF: .text:004F2363o
+ ; char aDscptrXderradd[]
+ aDscptrXderradd db 'dscPtr->xdERRaddr == errPtr',0
+                                         ; DATA XREF: .text:004F2488o
+ ; char aXx_cpp_19[]
+ aXx_cpp_19      db 'xx.cpp',0           ; DATA XREF: .text:004F2483o
+ ; char aDscptrXdhtabad[]
+ aDscptrXdhtabad db 'dscPtr->xdHtabAdr == hdtPtr',0
+                                         ; DATA XREF: .text:004F24A7o
+ ; char aXx_cpp_20[]
+ aXx_cpp_20      db 'xx.cpp',0           ; DATA XREF: .text:004F24A2o
+ ; char aDscptrXdargcop[]
+ aDscptrXdargcop db 'dscPtr->xdArgCopy == 0',0 ; DATA XREF: .text:004F24C4o
+ ; char aXx_cpp_21[]
+ aXx_cpp_21      db 'xx.cpp',0           ; DATA XREF: .text:004F24BFo
+ ; char aDscptrXdmaskTm[]
+ aDscptrXdmaskTm db '(dscPtr->xdMask & TM_IS_PTR) == 0',0
+                                         ; DATA XREF: .text:004F2572o
+ ; char aXx_cpp_22[]
+ aXx_cpp_22      db 'xx.cpp',0           ; DATA XREF: .text:004F256Do
+ ; char aMaskTm_is_ptr[]
+ aMaskTm_is_ptr  db 'mask & TM_IS_PTR',0 ; DATA XREF: .text:004F25A4o
+ ; char aXx_cpp_23[]
+ aXx_cpp_23      db 'xx.cpp',0           ; DATA XREF: .text:004F259Fo
+ ; char aDscptrXdmask_0[]
+ aDscptrXdmask_0 db 'dscPtr->xdMask & TM_IS_PTR',0
+                                         ; DATA XREF: .text:004F25C1o
+ ; char aXx_cpp_24[]
+ aXx_cpp_24      db 'xx.cpp',0           ; DATA XREF: .text:004F25BCo
+ ; char aDscptrXdtypeid[]
+ aDscptrXdtypeid db 'dscPtr->xdTypeID == dscPtr->xdBase',0
+                                         ; DATA XREF: .text:004F263Eo
+ ; char aXx_cpp_25[]
+ aXx_cpp_25      db 'xx.cpp',0           ; DATA XREF: .text:004F2639o
+ ; char aHdtptrHdcctrad[]
+ aHdtptrHdcctrad db 'hdtPtr->HDcctrAddr',0 ; DATA XREF: .text:004F268Do
+ ; char aXx_cpp_26[]
+ aXx_cpp_26      db 'xx.cpp',0           ; DATA XREF: .text:004F2688o
+ ; char aDscptrXdsizeSi[]
+ aDscptrXdsizeSi db 'dscPtr->xdSize == size',0 ; DATA XREF: .text:004F26FAo
+ ; char aXx_cpp_27[]
+ aXx_cpp_27      db 'xx.cpp',0           ; DATA XREF: .text:004F26F5o
+ ; char aXdrptrXdrptrXd[]
+ aXdrptrXdrptrXd db 'xdrPtr && xdrPtr == *xdrLPP',0
+                                         ; DATA XREF: .text:004F282Do
+ ; char aXx_cpp_28[]
+ aXx_cpp_28      db 'xx.cpp',0           ; DATA XREF: .text:004F2828o
+ aBogusContextIn db 'bogus context in Local_unwind()',0
+                                         ; DATA XREF: .text:loc_4F2876o
+ ; char aBogusContext_0[]
+ aBogusContext_0 db '!"bogus context in Local_unwind()"',0
+                                         ; DATA XREF: .text:004F2889o
+ ; char aXx_cpp_29[]
+ aXx_cpp_29      db 'xx.cpp',0           ; DATA XREF: .text:004F2884o
+ ; char s2[]
+ s2              db 'const ',0           ; DATA XREF: .text:004F2917o
+ ; char aVolatile[]
+ aVolatile       db 'volatile ',0        ; DATA XREF: .text:004F2930o
+ aBogusContext_1 db 'bogus context in _ExceptionHandler()',0
+                                         ; DATA XREF: .text:loc_4F2E9Do
+ ; char aBogusContext_2[]
+ aBogusContext_2 db '!"bogus context in _ExceptionHandler()"',0
+                                         ; DATA XREF: .text:004F2EB0o
+ ; char aXx_cpp_30[]
+ aXx_cpp_30      db 'xx.cpp',0           ; DATA XREF: .text:004F2EABo
+ ; char aVartypeTpclass[]
+ aVartypeTpclass db 'varType->tpClass.tpcFlags & CF_HAS_DTOR',0
+                                         ; DATA XREF: .text:004F2F09o
+ ; char aXx_cpp_31[]
+ aXx_cpp_31      db 'xx.cpp',0           ; DATA XREF: .text:004F2F04o
+ ; char aVartypeTpcla_0[]
+ aVartypeTpcla_0 db 'varType->tpClass.tpcDtorAddr',0
+                                         ; DATA XREF: .text:004F2F26o
+ ; char aXx_cpp_32[]
+ aXx_cpp_32      db 'xx.cpp',0           ; DATA XREF: .text:004F2F21o
+ ; char aErrptrErrcinit[]
+ aErrptrErrcinit db '(errPtr->ERRcInitDtc >= varType->tpClass.tpcDtorCount) || flags',0
+                                         ; DATA XREF: .text:004F2F58o
+ ; char aXx_cpp_33[]
+ aXx_cpp_33      db 'xx.cpp',0           ; DATA XREF: .text:004F2F53o
+ ; char aVartypeTpcla_1[]
+ aVartypeTpcla_1 db 'varType->tpClass.tpcFlags & CF_HAS_DTOR',0
+                                         ; DATA XREF: .text:004F303Eo
+ ; char aXx_cpp_34[]
+ aXx_cpp_34      db 'xx.cpp',0           ; DATA XREF: .text:004F3039o
+ ; char aBl[]
+ aBl             db 'bl',0               ; DATA XREF: .text:004F309Bo
+ ; char aXx_cpp_35[]
+ aXx_cpp_35      db 'xx.cpp',0           ; DATA XREF: .text:004F3096o
+ ; char aBlBloffs0[]
+ aBlBloffs0      db 'bl->blOffs == 0',0  ; DATA XREF: .text:004F30C4o
+ ; char aXx_cpp_36[]
+ aXx_cpp_36      db 'xx.cpp',0           ; DATA XREF: .text:004F30BFo
+ ; char aDtorcntVarcoun[]
+ aDtorcntVarcoun db 'dtorCnt < varCount',0 ; DATA XREF: .text:004F3114o
+ ; char aXx_cpp_37[]
+ aXx_cpp_37      db 'xx.cpp',0           ; DATA XREF: .text:004F310Fo
+ ; char aIs_strucBltype[]
+ aIs_strucBltype db 'IS_STRUC(blType->tpMask)',0 ; DATA XREF: .text:004F3152o
+ ; char aXx_cpp_38[]
+ aXx_cpp_38      db 'xx.cpp',0           ; DATA XREF: .text:004F314Do
+ ; char aIs_strucBlty_0[]
+ aIs_strucBlty_0 db 'IS_STRUC(blType->tpMask)',0 ; DATA XREF: .text:004F31C7o
+ ; char aXx_cpp_39[]
+ aXx_cpp_39      db 'xx.cpp',0           ; DATA XREF: .text:004F31C2o
+ ; char aMemtype[]
+ aMemtype        db 'memType',0          ; DATA XREF: .text:004F3257o
+ ; char aXx_cpp_40[]
+ aXx_cpp_40      db 'xx.cpp',0           ; DATA XREF: .text:004F3252o
+ ; char aMemtypeTpclass[]
+ aMemtypeTpclass db 'memType->tpClass.tpcFlags & CF_HAS_DTOR',0
+                                         ; DATA XREF: .text:004F328Ao
+ ; char aXx_cpp_41[]
+ aXx_cpp_41      db 'xx.cpp',0           ; DATA XREF: .text:004F3285o
+ ; char aVartypeTpmaskT[]
+ aVartypeTpmaskT db 'varType->tpMask & TM_IS_ARRAY',0
+                                         ; DATA XREF: .text:004F3371o
+ ; char aXx_cpp_42[]
+ aXx_cpp_42      db 'xx.cpp',0           ; DATA XREF: .text:004F336Co
+ ; char aVartypeTparr_t[]
+ aVartypeTparr_t db 'varType->tpArr.tpaElemType->tpClass.tpcFlags & CF_HAS_DTOR',0
+                                         ; DATA XREF: .text:004F3391o
+ ; char aXx_cpp_43[]
+ aXx_cpp_43      db 'xx.cpp',0           ; DATA XREF: .text:004F338Co
+ ; char aVdtcount[]
+ aVdtcount       db 'vdtCount',0         ; DATA XREF: .text:004F33B8o
+ ; char aXx_cpp_44[]
+ aXx_cpp_44      db 'xx.cpp',0           ; DATA XREF: .text:004F33B3o
+ ; char aEtdcountElemco[]
+ aEtdcountElemco db 'etdCount <= elemCount || elemCount == 0',0
+                                         ; DATA XREF: .text:004F33F5o
+ ; char aXx_cpp_45[]
+ aXx_cpp_45      db 'xx.cpp',0           ; DATA XREF: .text:004F33F0o
+ ; char aDtrcountVdtcou[]
+ aDtrcountVdtcou db 'dtrCount <= vdtCount',0 ; DATA XREF: .text:004F3419o
+ ; char aXx_cpp_46[]
+ aXx_cpp_46      db 'xx.cpp',0           ; DATA XREF: .text:004F3414o
+ ; char aIs_classVartyp[]
+ aIs_classVartyp db 'IS_CLASS(varType->tpMask)',0 ; DATA XREF: .text:004F3494o
+ ; char aXx_cpp_47[]
+ aXx_cpp_47      db 'xx.cpp',0           ; DATA XREF: .text:004F348Fo
+ ; char aUnsigned__fa_0[]
+ aUnsigned__fa_0 db '((unsigned __far *)vftAddr)[-1] == 0',0
+                                         ; DATA XREF: .text:004F34E4o
+ ; char aXx_cpp_48[]
+ aXx_cpp_48      db 'xx.cpp',0           ; DATA XREF: .text:004F34DFo
+ ; char aDttptrDttflags[]
+ aDttptrDttflags db 'dttPtr->dttFlags & (DTCVF_PTRVAL|DTCVF_RETVAL)',0
+                                         ; DATA XREF: .text:004F3543o
+ ; char aXx_cpp_49[]
+ aXx_cpp_49      db 'xx.cpp',0           ; DATA XREF: .text:004F353Eo
+ ; char aDttptrDtttypeT[]
+ aDttptrDtttypeT db 'dttPtr->dttType->tpMask & TM_IS_PTR',0
+                                         ; DATA XREF: .text:004F3565o
+ ; char aXx_cpp_50[]
+ aXx_cpp_50      db 'xx.cpp',0           ; DATA XREF: .text:004F3560o
+ ; char aDttptrDtttyp_0[]
+ aDttptrDtttyp_0 db 'dttPtr->dttType->tpPtr.tppBaseType->tpClass.tpcFlags & CF_HAS_DTO'
+                                         ; DATA XREF: .text:004F358Ao
+                 db 'R',0
+ ; char aXx_cpp_51[]
+ aXx_cpp_51      db 'xx.cpp',0           ; DATA XREF: .text:004F3585o
+ ; char aIs_classDttptr[]
+ aIs_classDttptr db 'IS_CLASS(dttPtr->dttType->tpMask) && (dttPtr->dttType->tpClass.tp'
+                                         ; DATA XREF: .text:004F35CEo
+                 db 'cFlags & CF_HAS_DTOR)',0
+ ; char aXx_cpp_52[]
+ aXx_cpp_52      db 'xx.cpp',0           ; DATA XREF: .text:004F35C9o
+ ; char aDtvtptrDtttype[]
+ aDtvtptrDtttype db 'dtvtPtr->dttType->tpMask & TM_IS_ARRAY',0
+                                         ; DATA XREF: .text:004F363Fo
+ ; char aXx_cpp_53[]
+ aXx_cpp_53      db 'xx.cpp',0           ; DATA XREF: .text:004F363Ao
+ ; char aVartypeTpcla_2[]
+ aVartypeTpcla_2 db 'varType->tpClass.tpcFlags & CF_HAS_DTOR',0
+                                         ; DATA XREF: .text:004F36A3o
+ ; char aXx_cpp_54[]
+ aXx_cpp_54      db 'xx.cpp',0           ; DATA XREF: .text:004F369Eo
+ ; char aElemtypeTpclas[]
+ aElemtypeTpclas db 'elemType->tpClass.tpcFlags & CF_HAS_DTOR',0
+                                         ; DATA XREF: .text:004F3717o
+ ; char aXx_cpp_55[]
+ aXx_cpp_55      db 'xx.cpp',0           ; DATA XREF: .text:004F3712o
+ ; char aVartypeTpmas_0[]
+ aVartypeTpmas_0 db 'varType->tpMask & TM_IS_ARRAY',0
+                                         ; DATA XREF: .text:004F3774o
+ ; char aXx_cpp_56[]
+ aXx_cpp_56      db 'xx.cpp',0           ; DATA XREF: .text:004F376Fo
+ ; char aVartypeTpmas_1[]
+ aVartypeTpmas_1 db 'varType->tpMask & TM_IS_PTR',0
+                                         ; DATA XREF: .text:004F37ABo
+ ; char aXx_cpp_57[]
+ aXx_cpp_57      db 'xx.cpp',0           ; DATA XREF: .text:004F37A6o
+ ; char aBl_0[]
+ aBl_0           db 'bl',0               ; DATA XREF: .text:004F384Fo
+ ; char aXx_cpp_58[]
+ aXx_cpp_58      db 'xx.cpp',0           ; DATA XREF: .text:004F384Ao
+ aBccxh1         db '**BCCxh1',0         ; DATA XREF: .text:004F39B6o
+                 db 3 dup(0)
 stru_57D0E0	_excInfo <offset @$xt$p17System@AnsiString, 5, -4>
 					; `__tpdsc__'[System::AnsiString *]
 		dd 0

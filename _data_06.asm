@@ -3836,11 +3836,11 @@ a0xX		db '0x!%X',0             ; DATA XREF: .text:00499627o
 ; char aIS_5[]
 aIS_5		db '!%i!%s ',0            ; DATA XREF: .text:004997EAo
 ; char a0x02x_0[]
-a0x02x_0	db '\{0x!%02X\}',0         ; DATA XREF: .text:0049980Bo
+a0x02x_0	db '(0x!%02X)',0         ; DATA XREF: .text:0049980Bo
 ; char a0x04x[]
-a0x04x		db '\{0x!%04X\}',0         ; DATA XREF: .text:00499831o
+a0x04x		db '(0x!%04X)',0         ; DATA XREF: .text:00499831o
 ; char a0x08x[]
-a0x08x		db '\{0x!%08X\}',0         ; DATA XREF: .text:00499851o
+a0x08x		db '(0x!%08X)',0         ; DATA XREF: .text:00499851o
 ; char aI_Arguments[]
 aI_Arguments	db '!%i. arguments',0    ; DATA XREF: .text:004998F0o
 ; char aI_BytesOfArgum[]
