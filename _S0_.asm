@@ -9,7 +9,7 @@ MAX_HIST EQU 32
 						t_command <$CTW0("DB"),	 	$CTW0("a"),	DUMP_HEXA16,	offset subDumpcmd,	$CTW0("Dump in Hex byte format")>
 						t_command <$CTW0("DC"),	 	$CTW0("a"),	DUMP_ASC64,		offset subDumpcmd,	$CTW0("Dump in Ascii format")>
 						t_command <$CTW0("DD"),	 	$CTW0("a"),	DUMP_ADDR,		offset subDumpcmd,	$CTW0("Dump in Stack format")>
-						t_command <$CTW0("DU"),	 	$CTW0("a"),	DUMP_UNI64,		offset subDumpcmd,	$CTW0("Dump in Unicode format")>
+						t_command <$CTW0("DU"),	 	$CTW0("a"),	DUMP_UNI32,		offset subDumpcmd,	$CTW0("Dump in Unicode format")>
 						t_command <$CTW0("DW"),	 	$CTW0("a"),	DUMP_IHEX16,	offset subDumpcmd,	$CTW0("Dump in Hex word format")>
 						
 						t_command <$CTW0("DFF"), 	$CTW0("a"),	DUMP_FLOAT32,	offset subDumpcmd,	$CTW0("Dump in 32-bit floats")>
@@ -26,7 +26,7 @@ MAX_HIST EQU 32
 						t_command <$CTW0("AT"),	 	$CTW0("A"),	0,				offset subDasmcmd,	$CTW0("Disassemble at address")>
 						t_command <$CTW0("FOLLOW"),	$CTW0("A"),	0,				offset subDasmcmd,	$CTW0("Disassemble at address")>
 						
-						t_command <$CTW0("BP"),		$CTW0("AS"),BP_MANUAL,		offset subBreakpt,	$CTW0("int3 [condition] breakpoint")>
+						t_command <$CTW0("BP"),		$CTW0("AS"),BP_MANUAL,		offset subBreakpt,	$CTW0("int3 [,condition] breakpoint")>
 						t_command <$CTW0("BC"),		$CTW0("A"),	0,				offset subDelbpt,	$CTW0("Delete int3 breakpoint")>
 						
 						t_command <$CTW0("MR"),		$CTW0("Av"),BP_MR,			offset subMembkpt,	$CTW0("Memory breakpt on access")>
@@ -61,6 +61,7 @@ MAX_HIST EQU 32
 						
 						t_command <$CTW0("R"),		$CTW0("RL"),0,				offset subRegEdit,	$CTW0("reg edit ")>
 						
+			
 						
 	gcmdlistEnd			t_command <0,0,0,0,0>
 
@@ -88,18 +89,24 @@ static int       count;                // Operands N/n (count)
 
 
 .code
+
 subMemEdit proc answer,parm
-	mov eax,parm
-	.if eax == 1008h
+	mov ecx,parm
+	.if ecx == 1008h
 		fld glval.f
 		fstp qword ptr glval._data
-	.elseif eax == 1004h
+	.elseif ecx == 1004h
 		fld glval.f
 		fstp dword ptr glval._data
+	.elseif ecx == 8h
+		mov eax,glval.l
+		cdq
+		mov dword ptr glval._data,eax
+		mov dword ptr glval._data[4],edx	
 	.endif
-	
-	and eax,0Fh
-	invoke Writememory,addr glval._data,gaddr,eax,MM_SILENT or MM_REMOVEINT3 or MM_ADJUSTINT3
+
+	and ecx,0Fh
+	invoke Writememory,addr glval._data,gaddr,ecx,MM_SILENT or MM_REMOVEINT3 or MM_ADJUSTINT3
 	.if !eax
 		invoke wsprintfW,answer,$CTW0("Unable to modify memory")
 		mov eax,-1
@@ -160,6 +167,7 @@ subRegEdit proc uses esi answer,parm
 		imul ecx,ecx,sizeof tbyte
 		fld glval.f
 		fstp [esi].reg.f[ecx]
+		
 	.else
 		
 	.endif	
@@ -179,7 +187,7 @@ subDumpStruc proc uses esi answer,parm
 		invoke wsprintfW,answer,$CTW0("..........")
 		jmp done
 	.endif
-	invoke Getstructureitemcount,offset gstr,addr _count
+	invoke m_Getstructureitemcount,offset gstr,addr _count
 	.if !eax
 		invoke wsprintfW,answer,$CTW0("Undefined Structure: %s"),offset gstr
 	.endif
@@ -187,11 +195,9 @@ subDumpStruc proc uses esi answer,parm
 	invoke wsprintfW,addr _title,$CTW0("Structure %s at "),offset gstr
 	mov ecx,TEXTLEN
 	sub ecx,eax
-	lea eax,_title[eax*2]
 	
-	invoke Decodeaddress,gaddr,0,20400h,eax,ecx,0
-	invoke Createdumpwindow,addr _title,gaddr,_count,0,parm,gaddr,gaddr,offset gstr
-
+	invoke m_Decodeaddress,gaddr,0,20400h,addr _title[eax*2],ecx,0
+	invoke m_Createdumpwindow,addr _title,gaddr,_count,0,parm,gaddr,gaddr,offset gstr
 done:	
 	xor eax,eax
 	ret
@@ -217,6 +223,7 @@ subWatch proc uses esi answer,parm
 		invoke Maketableareavisible,esi,-1,0,eax,0,edx
 		mov edx,hwollymain
 		invoke SendMessageW,[edx],WM_COMMAND,8A0h,0
+		
 	.endif
 	assume esi:nothing
 	xor eax,eax

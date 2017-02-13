@@ -20,9 +20,9 @@ include macro\strings.mac
 
 include CmdBar.inc
 include _A0_.ASM
+include _T0_.ASM
 include _S0_.ASM
-;include _T0_.ASM
-
+include _S1_.ASM
 
 comment #
 
@@ -39,24 +39,6 @@ bPluginversion	EQU $CTW0("1.00.02")
 ;	
 ;--------------------------------------------------------------------------------
 .code
-;typedef int  MENUFUNC(struct t_table *,wchar_t *,ulong,int);
-
-SubmenuFunc proc c pt,_name,index,mode
-	mov eax,mode
-	
-	.if eax==MENU_VERIFY
-		mov eax,MENU_NORMAL
-	.elseif eax==MENU_EXECUTE
-		invoke Resumeallthreads
-		mov edx,hwollymain
-		invoke MessageBoxW,[edx],$CTW0("so boring"),$CTW0("about:"),MB_OK
-		invoke Suspendallthreads
-		mov eax,MENU_REDRAW
-	.else
-		mov eax,MENU_REDRAW
-	.endif
-	ret
-SubmenuFunc endp
 
 WndProc proc hWnd,Msg,wParam,lParam
 	.if Msg==5
@@ -539,17 +521,31 @@ ODBG2_Plugindump proc c uses esi edi ebx pd,s,_mask,n,select,_addr,column
 ODBG2_Plugindump endp
 ODBG2_Pluginmenu proc c _type
 .data
-	submenu t_menu <$CTW0("about:"),$CTW0("about"),0,offset SubmenuFunc,0,<0>>
-			t_menu <0,0,0,0,0,<0>>
-	gmenu 	t_menu <$CTW0("CmdBar"),$CTW0("CmdBar"),0,0,offset submenu,<0>>
-			t_menu <0,0,0,0,0,<0>>
+	submenu 	t_menu <$CTW0("about:"),$CTW0("about"),0,offset SubmenuFunc,0,<0>>
+				t_menu <0,0,0,0,0,<0>>
+	gMainmenu 	t_menu <$CTW0("CmdBar"),$CTW0("CmdBar"),0,0,offset submenu,<0>>
+				t_menu <0,0,0,0,0,<0>>
 .code
 	invoke crt_wcscmp,_type,PWM_MAIN
 	.if !eax
-		mov eax,offset gmenu
-	.else
-		xor eax,eax
+		mov eax,offset gMainmenu
+		jmp done
 	.endif
+	
+.data		
+	gMemorymenu t_menu <$CTW0("Dump in file"),0,0,offset Submemorydump,0,<0>>
+				t_menu <0,0,0,0,0,<0>>
+.code	
+	invoke crt_wcscmp,_type,PWM_MEMORY
+	.if !eax
+		mov eax,offset gMemorymenu
+		jmp done
+	.endif
+	
+
+	
+	xor eax,eax
+done:	
 	ret
 ODBG2_Pluginmenu endp
 ODBG2_Pluginquery proc c ollydbgversion,features,pluginname,pluginversion

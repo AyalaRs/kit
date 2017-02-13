@@ -72,39 +72,54 @@ _DelayLoad proc
 	push esi
 	mov esi,eax
 	invoke GetProcAddress,gExeHande,[esi][4]
-	mov [esi],eax
+	.if !eax
+		mov eax,offset @F
+	.endif
+	mov [esi],eax		
 	pop esi
 	pop edx
 	pop ecx
 	jmp eax
+@@:	
+	invoke MessageBoxW,NULL,$CTW0("error"),$CTW0(""),MB_OK
+	ret
 _DelayLoad endp
 
 
-define stdcall,Setcpu,threadid,asmaddr,dumpaddr,selsize,stackaddr,mode
-define stdcall,Resumeallthreads
-define stdcall,Suspendallthreads
-define stdcall,Setdumptype,pd,dumptype
-define stdcall,Getcpudumpdump
-define stdcall,Getcputhreadid
-define stdcall,Expression,result,_Expression,_data,base,_size,threadid,a,b,mode
-define stdcall,Findmemory,_addr
-define stdcall,Findthread,threadid
-define stdcall,Broadcast,msg,wp,lp
-define stdcall,Setint3breakpoint,_addr,_type,fnindex,limit,count,actions,cond,expression,exprtype
-define stdcall,Removeint3breakpoint,_addr,_type
-define stdcall,Enablemembreakpoint,_addr,isenable
-define stdcall,Setmembreakpoint,_addr,_size,_type,limit,count,cond,expression,exprtype
-define stdcall,Sethardbreakpoint,index,_size,_type,fnindex,_addr,limit,count,actions,cond,expression,exprtype
-define stdcall,Removehardbreakpoint,index
-define stdcall,Findfreehardbreakslot,index
-define stdcall,Setstatus,newstatus
-define stdcall,Addsorteddata,sd,item
-define stdcall,Gettableselectionxy,pt,column,coord
-define stdcall,Maketableareavisible,pt,column,x0,y0,x1,y1
-define stdcall,Createdumpwindow,_title,_base,_size,_path,dumptype,sel0,sel1,strname
-define stdcall,Getstructureitemcount,_name,_size
-define stdcall,Decodeaddress,_addr,_amod,_mode,_symb,_nsymb,_comment
-define stdcall,Writememory,_buf,_addr,_size,_mode;
+define c,Setcpu,threadid,asmaddr,dumpaddr,selsize,stackaddr,mode
+define c,Resumeallthreads
+define c,Suspendallthreads
+define c,Setdumptype,pd,dumptype
+define c,Getcpudumpdump
+define c,Getcputhreadid
+define c,Expression,result,_Expression,_data,base,_size,threadid,a,b,mode
+define c,Findmemory,_addr
+define c,Findthread,threadid
+define c,Broadcast,msg,wp,lp
+define c,Setint3breakpoint,_addr,_type,fnindex,limit,count,actions,cond,expression,exprtype
+define c,Removeint3breakpoint,_addr,_type
+define c,Enablemembreakpoint,_addr,isenable
+define c,Setmembreakpoint,_addr,_size,_type,limit,count,cond,expression,exprtype
+define c,Sethardbreakpoint,index,_size,_type,fnindex,_addr,limit,count,actions,cond,expression,exprtype
+define c,Removehardbreakpoint,index
+define c,Findfreehardbreakslot,index
+define c,Setstatus,newstatus
+define c,Addsorteddata,sd,item
+define c,Gettableselectionxy,pt,column,coord
+define c,Maketableareavisible,pt,column,x0,y0,x1,y1
+define c,Createdumpwindow,_title,_base,_size,_path,dumptype,sel0,sel1,strname
+define c,Getstructureitemcount,_name,_size
+define c,Decodeaddress,_addr,_amod,_mode,_symb,_nsymb,_comment
+define c,Decodestructure,_name,_addr,_item0,_ps,ns
+define c,Writememory,_buf,_addr,_size,_mode;
+define c,Readmemory,_buf,_addr,_size,_mode;
+define c,Memalloc,_size,flags
+define c,Memfree,p
+define c,Createtablewindow,pt,nrow,ncolumn,_hi,_icon,_title
+define c,Activatetablewindow,pt
+define c,Getsortedbyselection,sd,_index
+
+
 
 define c,Tempinfo,parmcount,parmvalues:VARARG
 define c,Addtolist,_addr,color,format,_s:VARARG
