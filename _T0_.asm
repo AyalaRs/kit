@@ -19,12 +19,492 @@ typedef int  UPDATEFUNC(struct t_table *);
 typedef int DRAWFUNC(wchar_t *s,uchar *mask,int *select,struct t_table *pt,t_sorthdr *ps,int column,void *cache)
 typedef void TABSELFUNC(struct t_table *,int,int);
 ;#
+t_DiData        struc ; (sizeof=0xC, mappedto_426)
+	sdata           dw ?
+	rdata           dw ?
+	cp              dd ?                    ; offset
+	next            dd ?                    ; offset
+t_DiData        ends
+
+; ---------------------------------------------------------------------------
+
+t_CiData        struc ; (sizeof=0x6, mappedto_425)
+	data            dw ?
+	next            dd ?                    ; offset
+t_CiData        ends
+
+t_Cryption       struc ; 
+	Cbuf            dd ?                    
+	tmpbuf          dd ?
+	tmpcp           dd ?                   
+	                                     
+	dst             dd ?                    
+	                                     
+	dstlen          dd ?                    
+	                                     
+	dstcp           dd ?
+	src             dd ?
+	srclen          dd ?
+	srccp           dd ?
+	code            dd ?
+	decode          dd ?
+	ccp             dd ?
+	dcp             dd ?
+	tlen            dd ?
+t_Cryption       ends
 
 
-m_drawfunc proc c a1,a2,a3,a4,a5,a6,a7
+t_datakit struc
+	_sign	dd ?
+	_length	dd ?
+	_data	dd 0 dup(?)
+t_datakit ends
+
+
+.data
+	g_Cryption t_Cryption <>
+.code
+SIGN_UNICODE_END 	EQU 4000h
+SIGN_ASCII_END 		EQU 100h
+SIGN_DATA_HEAD		EQU	6470430Ah
+
+m_Encryption proc _code
+	mov eax,g_Cryption.code
+	mov ecx,g_Cryption.tlen
+	shl eax,cl
+	or eax,_code
+	mov g_Cryption.code,eax
 	
+	add g_Cryption.ccp,ecx
+	
+	.while g_Cryption.ccp>=8
+		sub g_Cryption.ccp,8
+		
+		mov edx,g_Cryption.dstcp
+		.if edx < g_Cryption.dstlen
+			mov eax,g_Cryption.code
+			mov ecx,g_Cryption.ccp
+			shr eax,cl
+			
+			add edx,g_Cryption.dst
+			mov [edx],al
+			inc g_Cryption.dstcp
+		.endif
+		
+		mov ecx,g_Cryption.ccp
+		mov eax,1
+		shl eax,cl
+		dec eax
+		and g_Cryption.code,eax
+	.endw
+
 	ret
-m_drawfunc endp
+m_Encryption endp
+
+m_Decryption_get proc
+	mov eax,g_Cryption.dcp
+	mov ecx,g_Cryption.srccp
+	.while eax<g_Cryption.tlen && ecx<g_Cryption.srclen
+		mov eax,g_Cryption.decode
+		shl eax,8
+		mov edx,g_Cryption.src
+		add edx,ecx
+		movzx edx,byte ptr [edx]
+		or eax,edx
+		mov g_Cryption.decode,eax
+		
+		inc g_Cryption.srccp
+		add g_Cryption.dcp,8		
+		mov eax,g_Cryption.dcp
+		mov ecx,g_Cryption.srccp
+	.endw
+	mov ecx,g_Cryption.tlen
+	sub g_Cryption.dcp,ecx
+	
+	mov ecx,g_Cryption.dcp
+	mov eax,g_Cryption.decode
+	shr eax,cl
+	
+	mov eax,1
+	shl eax,cl
+	dec eax
+	and g_Cryption.decode,eax
+	ret
+m_Decryption_get endp
+
+m_Decryption_fci proc uses esi tci,oci
+	mov eax,oci						;return oci
+	mov esi,tci
+	assume esi:ptr t_CiData
+	
+	mov ecx,[esi].next
+	.if ecx
+		echo .........
+		invoke m_Decryption_fci,ecx,oci
+		mov eax,g_Cryption.dstcp	;return &cp
+		.if eax < g_Cryption.dstlen 
+			mov ecx,eax
+			add ecx,g_Cryption.dst
+			
+			movzx edx,[esi].data
+			mov [ecx],dl
+			
+			inc g_Cryption.dstcp
+		.endif
+	.else
+		mov ecx,g_Cryption.dstcp
+		.if ecx < g_Cryption.dstlen 
+			mov eax,ecx
+			add eax,g_Cryption.dst	;return &dst[cp]
+			
+			movzx ecx,[esi].data
+			mov edx,oci
+			mov [edx],ecx
+			
+			mov [eax],cl
+			inc g_Cryption.dstcp
+		.endif
+	.endif
+	
+	
+	
+	assume esi:nothing
+	ret
+m_Decryption_fci endp
+
+m_Decryption_fill proc cp1,cp2,fc
+	LOCAL oci:DWORD
+	
+	mov eax,cp2
+	mov ecx,sizeof t_CiData
+	.if eax>=g_Cryption.tmpcp
+		mov eax,cp1
+	.endif
+		
+	mul ecx
+	lea ecx,oci
+	add eax,g_Cryption.tmpbuf
+	invoke m_Decryption_fci,eax,ecx
+	
+	mov eax,cp2
+	mov ecx,g_Cryption.dstcp
+	.if eax>=g_Cryption.tmpcp && ecx<g_Cryption.dstlen
+		add ecx,g_Cryption.dst
+		mov edx,fc
+		mov [ecx],dl
+		inc g_Cryption.dstcp
+	.endif
+	
+	mov eax,oci
+	ret
+m_Decryption_fill endp
+
+
+
+m_Compress proc uses esi edi ebx bufin,nbufin,bufout,nbufout
+	
+	.if !bufin || !nbufin || !bufout || nbufout <=t_datakit._data
+		xor eax,eax
+		jmp done
+	.endif
+	
+
+	invoke Memalloc,sizeof t_DiData * SIGN_UNICODE_END,ZEROINIT
+	mov g_Cryption.Cbuf,eax
+	
+	.if !g_Cryption.Cbuf
+		;xor eax,eax
+		jmp done
+	.endif
+
+	mov edi,g_Cryption.Cbuf
+	assume edi:ptr t_DiData
+	
+	lea ecx,[edi].rdata
+	xor eax,eax
+	.repeat
+		mov [ecx],ax
+		add ecx,sizeof t_DiData
+		inc eax
+	.until eax>= SIGN_UNICODE_END
+	
+	lea ecx,[edi].sdata
+	xor eax,eax
+	.repeat
+		mov [ecx],ax
+		add ecx,sizeof t_DiData
+		inc eax
+	.until eax>= SIGN_ASCII_END
+	
+	mov edi,bufout
+	mov ecx,nbufout
+	mov eax,nbufin
+	assume edi:ptr t_datakit
+	
+	mov [edi]._sign,SIGN_DATA_HEAD	;"\nCpd"
+	mov [edi]._length,eax
+		
+	mov g_Cryption.tmpcp,SIGN_ASCII_END
+	mov g_Cryption.tlen, 9		;(1 << 9)
+	mov g_Cryption.dst,edi
+	mov g_Cryption.dstlen,ecx
+	mov g_Cryption.dstcp,t_datakit._data		;lengthof head
+	mov g_Cryption.code,0
+	mov g_Cryption.ccp,0
+	
+	mov eax,bufin
+	mov g_Cryption.src,eax
+	mov eax,nbufin
+	mov g_Cryption.srclen,eax
+	mov g_Cryption.srccp,0
+	
+	mov esi,bufin
+	
+	mov eax,g_Cryption.srccp
+	movzx eax,byte ptr [esi+eax]
+	
+	mov ecx,sizeof t_DiData
+	mul ecx
+	mov ebx,g_Cryption.Cbuf
+	add ebx,eax
+	
+	assume ebx:ptr t_DiData
+	
+	inc g_Cryption.srccp
+	mov ecx,g_Cryption.srccp
+	
+	.while ecx < g_Cryption.srclen 
+		mov eax,g_Cryption.src
+		movzx esi,byte ptr [eax+ecx]
+		
+		mov edi,[ebx].cp
+		assume edi:ptr t_DiData
+		.if !edi
+			mov edi,ebx
+		.else	
+			.while si!=[edi].sdata && [edi].next
+				mov edi,[edi].next
+			.endw
+		.endif
+		
+		.if si==[edi].sdata && ebx!=edi
+			mov ebx,edi
+		.else
+			movzx ecx,[ebx].rdata
+			invoke m_Encryption,ecx	
+			
+			mov eax,g_Cryption.tmpcp
+			mov ecx,sizeof t_DiData
+			mul ecx
+			add eax,g_Cryption.Cbuf
+			mov (t_DiData ptr [eax]).sdata,si
+			inc g_Cryption.tmpcp
+			
+			.if edi==ebx
+				mov [edi].cp,eax
+			.else
+				mov [edi].next,eax
+			.endif
+			
+			
+			mov eax,1
+			mov ecx,g_Cryption.tlen
+			shl eax,cl
+			.if eax==g_Cryption.tmpcp
+				inc g_Cryption.tlen 
+			.endif
+			
+			.if g_Cryption.tmpcp==SIGN_UNICODE_END
+				
+				xor eax,eax
+				mov ecx,g_Cryption.Cbuf
+				assume ecx:ptr t_DiData
+				.repeat
+					mov [ecx].cp,0
+					mov [ecx].next,0
+					add ecx,sizeof t_DiData
+					inc eax
+				.until eax>=SIGN_UNICODE_END
+				assume ecx:nothing
+				
+				mov g_Cryption.tmpcp,SIGN_ASCII_END
+				mov g_Cryption.tlen,9
+			.endif
+			
+			mov eax,esi
+			mov ecx,sizeof t_DiData
+			mul ecx
+			add eax,g_Cryption.Cbuf
+			mov ebx,eax
+		.endif
+		inc g_Cryption.srccp
+		mov ecx,g_Cryption.srccp
+	.endw
+	invoke m_Encryption,[ebx].rdata
+	
+	mov eax,g_Cryption.dstcp
+	mov edx,g_Cryption.ccp
+	.if edx >0 && eax < g_Cryption.dstlen
+		mov al,byte ptr g_Cryption.code
+		mov ecx,8
+		sub ecx,edx
+		shl al,cl
+		mov ecx,g_Cryption.dstcp
+		add ecx,g_Cryption.dst
+		mov [ecx],al
+		inc g_Cryption.dstcp
+	.endif
+	invoke Memfree,g_Cryption.Cbuf
+	mov eax,g_Cryption.dstcp
+	assume esi:nothing
+	assume edi:nothing
+	assume ebx:nothing
+done:	
+	ret
+m_Compress endp
+
+
+
+
+m_Decompress proc uses esi edi ebx bufin,nbufin,bufout,nbufout
+	
+	.if !bufin || !nbufin || !bufout || nbufout <=t_datakit._data
+		xor eax,eax
+		jmp done
+	.endif
+	
+	mov ecx,nbufout
+	mov esi,bufin
+	assume esi:ptr t_datakit
+	.if [esi]._sign!=SIGN_DATA_HEAD || [esi]._length > ecx
+		xor eax,eax
+		jmp done
+	.endif
+	
+	invoke Memalloc,sizeof t_CiData * SIGN_UNICODE_END,ZEROINIT
+	mov g_Cryption.tmpbuf,eax
+	.if !g_Cryption.tmpbuf
+		;xor eax,eax
+		jmp done
+	.endif
+	
+	mov edi,g_Cryption.tmpbuf
+	assume edi:ptr t_CiData
+	
+	lea ecx,[edi].data
+	xor eax,eax
+	.repeat
+		mov [ecx],ax
+		add ecx,sizeof t_CiData
+		inc eax
+	.until eax>=SIGN_ASCII_END
+	
+	mov g_Cryption.tmpcp,SIGN_ASCII_END
+	mov g_Cryption.tlen,9
+	mov g_Cryption.decode,0
+	mov g_Cryption.dcp,0
+	
+	mov eax,bufin
+	mov g_Cryption.src,eax
+	mov eax,nbufin
+	mov g_Cryption.srclen,eax
+	mov eax,bufout
+	mov g_Cryption.dst,eax
+	mov eax,nbufout
+	mov g_Cryption.dstlen,eax
+	
+	mov g_Cryption.srccp,t_datakit._data
+	mov g_Cryption.dstcp,0
+	
+	invoke m_Decryption_get
+	mov edi,eax
+	invoke m_Decryption_fill,edi,edi,0
+	mov esi,eax
+	
+	mov ecx,g_Cryption.srccp
+	mov edx,g_Cryption.dcp
+	.while ecx< g_Cryption.srclen || edx >= g_Cryption.tlen
+		invoke m_Decryption_get
+		mov ebx,eax
+		
+		.if eax>g_Cryption.tmpcp
+			mov g_Cryption.dstcp,0
+			.break
+		.endif
+		
+		invoke m_Decryption_fill,edi,ebx,esi
+		mov esi,eax
+		
+		.if g_Cryption.tmpcp==SIGN_UNICODE_END-SIZEOF WORD
+			mov eax,SIGN_ASCII_END
+			mov ecx,sizeof t_CiData
+			mul ecx
+			add eax,g_Cryption.tmpbuf
+			mov ecx,SIGN_ASCII_END
+			assume eax:ptr t_CiData
+			.repeat
+				mov [eax].next,0
+				add eax,sizeof t_CiData
+				inc ecx
+			.until ecx>=SIGN_UNICODE_END
+			assume eax:nothing
+			
+			mov g_Cryption.tmpcp,SIGN_ASCII_END
+			mov g_Cryption.tlen,9
+			
+			mov eax,g_Cryption.srccp
+			mov edx,g_Cryption.dcp
+			.if eax<g_Cryption.srclen || edx >= g_Cryption.tlen
+				invoke m_Decryption_get
+				mov ebx,eax
+				invoke m_Decryption_fill,ebx,ebx,esi
+				mov esi,eax
+			.endif
+		.else
+			mov eax,g_Cryption.tmpcp
+			mov ecx,sizeof t_CiData
+			mul ecx
+			add eax,g_Cryption.tmpbuf
+			mov ecx,eax
+			
+			mov eax,edi
+			mov edx,sizeof t_CiData
+			mul edx
+			add eax,g_Cryption.tmpbuf
+			
+			assume ecx:ptr t_CiData
+			mov [ecx].data,si
+			mov [ecx].next,eax
+			assume ecx:nothing
+			
+			mov eax,1
+			mov ecx,g_Cryption.tlen
+			shl eax,cl
+			mov ecx,g_Cryption.tmpcp
+			inc ecx
+			.if eax==ecx
+				inc g_Cryption.tlen
+			.endif
+		.endif
+		mov edi,ebx
+	.endw
+	invoke Memfree,g_Cryption.tmpbuf
+	mov eax,g_Cryption.dstcp
+		
+done:	
+	ret
+m_Decompress endp
+
+
+
+
+
+
+
+
+
+
+
 
 
 m_Getstructureitemcount proc _name,_size

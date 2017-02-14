@@ -5,6 +5,10 @@ TEXTLEN		EQU 256			;for olly
 SHORTNAME	EQU 32
 
 
+REPORT		EQU 0
+SILENT		EQU 1
+ZEROINIT	EQU 2
+
 t_strdec        struc ; 
     _size            dd ?
 	_addr            dd ?
@@ -727,6 +731,8 @@ t_memory        ends
 
 
 ;--------------------------------------------------------------------------------
+
+
 
 ;--------------------------------------------------------------------------------
 
