@@ -727,13 +727,60 @@ t_memory        ends
 
 
 
+; Mode bits and return value of Browsefilename().
+ BRO_MODEMASK   EQU 0F0000000h;      // Mask to extract browsing mode
+   BRO_FILE     EQU 00000000h;      // Get file name
+   BRO_EXE      EQU 10000000h;      // Get name of executable
+   BRO_TEXT     EQU 20000000h;      // Get name of text log
+   BRO_GROUP    EQU 30000000h;      // Get one or several obj or lib files
+   BRO_MULTI    EQU 40000000h;      // Get one or several files
+ BRO_SAVE       EQU 08000000h;      // Get name in save mode
+ BRO_SINGLE     EQU 00800000h;      // Single file selected
+ BRO_MULTIPLE   EQU 00400000h;      // Multiple files selected
+ BRO_APPEND     EQU 00080000h;      // Append to existing file
+ BRO_ACTUAL     EQU 00040000h;      // Add actual contents
+ BRO_TABS       EQU 00020000h;      // Separate columns with tabs
+ BRO_GROUPMASK  EQU 000000FFh;      // Mask to extract groups
+   BRO_GROUP1   EQU 00000001h;      // Belongs to group 1
+   BRO_GROUP2   EQU 00000002h;      // Belongs to group 2
+   BRO_GROUP3   EQU 00000004h;      // Belongs to group 3
+   BRO_GROUP4   EQU 00000008h;      // Belongs to group 4
+ ;Memory-related item types (used in t_memory), see also t_memory.special.
+ MEM_ANYMEM     EQU 0FFFF000h;      // Mask for memory attributes
+   MEM_CODE     EQU 00001000h;      // Contains image of code section
+   MEM_DATA     EQU 00002000h;      // Contains image of data section
+   MEM_SFX      EQU 00004000h;      // Contains self-extractor
+   MEM_IMPDATA  EQU 00008000h;      // Contains import data
+   MEM_EXPDATA  EQU 00010000h;      // Contains export data
+   MEM_RSRC     EQU 00020000h;      // Contains resources
+   MEM_RELOC    EQU 00040000h;      // Contains relocation data
+   MEM_STACK    EQU 00080000h;      // Contains stack of some thread
+   MEM_STKGUARD EQU 00100000h;      // Guarding page of the stack
+   MEM_THREAD   EQU 00200000h;      // Contains data block of some thread
+   MEM_HEADER   EQU 00400000h;      // Contains COFF header
+   MEM_DEFHEAP  EQU 00800000h;      // Contains default heap
+   MEM_HEAP     EQU 01000000h;      // Contains non-default heap
+   MEM_NATIVE   EQU 02000000h;      // Contains JIT-compiled native code
+   MEM_GAP      EQU 08000000h;      // Free or reserved space
+ MEM_SECTION    EQU 10000000h;      // Section of the executable file
+ MEM_GUARDED    EQU 40000000h;      // NT only: guarded memory block
+ MEM_TEMPGUARD  EQU 80000000h;      // NT only: temporarily guarded block
 
 
+; Shortcut descriptions.
+ KK_KEYMASK     EQU 0000FFFFh;      // Mask to extract key
+ KK_CHAR        EQU 00010000h;      // Process as WM_CHAR
+ KK_SHIFT       EQU 00020000h;      // Shortcut includes Shift key
+ KK_CTRL        EQU 00040000h;      // Shortcut includes Ctrl key
+ KK_ALT         EQU 00080000h;      // Shortcut includes Alt key
+ KK_WIN         EQU 00100000h;      // Shortcut includes WIN key
+ KK_NOSH        EQU 00200000h;      // Shortcut ignores Shift in main menu
+ KK_UNUSED      EQU 7FC00000h;      // Unused shortcut data bits
+ KK_DIRECT      EQU 80000000h;      // Direct shortcut in menu
 
 ;--------------------------------------------------------------------------------
 
-
-
+UPDATEFUNC typedef proto stdcall :DWORD
 ;--------------------------------------------------------------------------------
 
 .data
@@ -746,6 +793,7 @@ t_memory        ends
 	gString			Word  0,0	;
 	gPrevCBProc		DWORD 0
 	gPrevWndProc 	DWORD 0
-
-
+	
+	gColor			DWORD 0FF00FFh
+	gmemalocsize	DWORD 1000h
 ENDIF

@@ -43,6 +43,10 @@ InitImportTable proc uses ebx
 	hwclient	dword 0
 	bphard		dword 0
 	watch		dword 0
+	
+	process		dword 0
+	processid	dword 0
+	memory		dword 0
 .code	
 	mov ebx,gExeHande
 	invoke GetProcAddress,ebx,$CTA0("hollyinst")
@@ -55,6 +59,12 @@ InitImportTable proc uses ebx
 	mov bphard,eax
 	invoke GetProcAddress,ebx,$CTA0("watch")
 	mov watch,eax	
+	invoke GetProcAddress,ebx,$CTA0("process")
+	mov process,eax	
+	invoke GetProcAddress,ebx,$CTA0("processid")
+	mov processid,eax		
+	invoke GetProcAddress,ebx,$CTA0("memory")
+	mov memory,eax	
 	ret
 InitImportTable endp
 
@@ -118,8 +128,11 @@ define c,Memfree,p
 define c,Createtablewindow,pt,nrow,ncolumn,_hi,_icon,_title
 define c,Activatetablewindow,pt
 define c,Getsortedbyselection,sd,_index
-
-
+define c,Browsefilename,_title,_name,args,currdir,_defext,_hwnd,mode
+define c,Listmemory
+define c,Settableselection,pt,sel
+define c,Findsorteddata,ps,_addr0,_addr1
+define c,Findsortedindexrange,ps,_addr0,_addr1
 
 define c,Tempinfo,parmcount,parmvalues:VARARG
 define c,Addtolist,_addr,color,format,_s:VARARG
